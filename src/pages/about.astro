@@ -1,0 +1,51 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+
+import people from "../people.json";
+import comp from "../config.json";
+---
+<ContentLayout name={comp.name}>
+  <div class="columns">
+    <div class="column is-one-half">
+        <div class="box">
+          <div class="block">
+            <p class="title is-4">{comp.name}</p>
+            <p class="subtitle is-4">{comp.subtitle}</p>
+          </div>
+          <div class="block">
+            <ul>
+              {
+                comp.socials.map((item) => (
+                    <li><a href={item.url}>{item.name}</a></li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="block">
+            <ul>
+              <li>{comp.email && <a href={"mailto:".concat(comp.email)}>{comp.email}</a>}</li>
+              <li>{comp.phone && <a href={"tel:".concat(comp.phone)}>{comp.phone}</a>}</li>
+              <li>{comp.office.address}</li>
+              <li>{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="column is-one-half">
+    {
+        people.leadership.map((item) => (
+            <div class="box">
+              <div class="block">
+                <p class="title is-4">{item.name}{item.creds && ", ".concat(item.creds.join(", "))} {item.pronouns  && <span class="has-text-weight-light">({item.pronouns})</span>}</p>
+                <p class="subtitle is-4">{item.roles && item.roles.join(", ")}</p>
+                <p>{item.email && <a href={"mailto:".concat(item.email)}>{item.email}</a>}</p>
+              </div>
+              <div class="block">
+                <p>{item.bio}</p>
+              </div>
+            </div>
+        ))
+    }
+    </div>
+  </div>
+</ContentLayout>

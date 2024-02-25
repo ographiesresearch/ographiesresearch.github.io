@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import data from "../config.json";
+---
+<BaseLayout name={data.name}>
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="" >
+				<h1 class="title"> {data.name}</h1>
+				<p class="subtitle">{data.subtitle}</p>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

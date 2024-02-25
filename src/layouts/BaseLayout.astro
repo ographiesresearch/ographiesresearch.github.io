@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { name } = Astro.props;
+
+const navItems = [
+    {
+        title: "Home",
+        path: "/",
+    },
+    {
+        title: "About",
+        path: "/about",
+    },
+    {
+        title: "Contact",
+        path: "/contact",
+    },
+
+]
+
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content={Astro.generator} />
+		<title>{name}</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	</head>
+	<body>
+		<Header {navItems}/>
+		<slot/>
+		<Footer {navItems}/>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "leadership": [
+        {
+            "name": "Eric Robsky Huntley",
+            "creds": ["PhD"],
+            "pronouns": "they/them",
+            "roles": ["Founder", "Principal"],
+            "email": "eric@ographiesresearch.com",
+            "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus enim ut risus bibendum rhoncus. Nunc vitae leo congue, porta nunc ultricies, imperdiet turpis. Proin convallis eu felis non bibendum. Nunc enim tortor, ullamcorper consequat facilisis sit amet, imperdiet a nulla. Donec lobortis lobortis imperdiet. Phasellus malesuada mollis ullamcorper. Proin non ante eu ex volutpat suscipit. In faucibus dictum ligula aliquet pretium. Mauris at turpis bibendum, placerat ex eget, vehicula nisl. Suspendisse in ex aliquet, elementum elit a, iaculis erat. Fusce ornare ac ante id interdum. Curabitur tincidunt elit a congue vulputate."
+        }
+    ]
+}

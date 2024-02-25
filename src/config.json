@@ -1,0 +1,22 @@
+{
+    "name": "OGRAPHIES Research & Design, LLC",
+    "subtitle": "When mapping matters.",
+    "email": "info@ographiesresearch.com",
+    "phone": "(508) 205-9583",
+    "office": {
+        "address": "PO Box 0000",
+        "city": "Somerville",
+        "state": "MA",
+        "postal": "02143"
+    },
+    "socials": [
+        {
+            "name": "Github",
+            "url": "https://github.com/organizations/ographiesresearch/"
+        },
+        {
+            "name": "Linkedin",
+            "url": "https://www.linkedin.com/company/ographiesresearch"
+        }
+    ]
+}

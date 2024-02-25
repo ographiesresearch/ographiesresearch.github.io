@@ -1,0 +1,44 @@
+---
+const platform = "github";
+const username = "ographies";
+
+import comp from "../config.json";
+const {navItems} = Astro.props;
+---
+
+<footer class="footer">
+  <div class="columns">
+    <div class="column is-one-third">
+      <div class="block">
+        <p class="title is-6">{comp.name}</p>
+        <p class="subtitle is-6">{comp.subtitle}</p>
+      </div>
+      <div class="block">
+        <ul>
+          {
+            comp.socials.map((item) => (
+                <li><a href={item.url}>{item.name}</a></li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="column is-one-third">
+      <ul>
+      {
+            navItems.map((item) => (
+                <li><a href={item.path}>{item.title}</a></li>
+            ))
+      }
+      </ul>
+    </div>
+    <div class="column is-one-third">
+      <ul>
+        <li>{comp.email && <a href={"mailto:".concat(comp.email)}>{comp.email}</a>}</li>
+        <li>{comp.phone && <a href={"tel:".concat(comp.phone)}>{comp.phone}</a>}</li>
+        <li>{comp.office.address}</li>
+        <li>{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
+      </ul>
+    </div>
+  </div>
+</footer>

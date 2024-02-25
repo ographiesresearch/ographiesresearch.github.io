@@ -1,0 +1,13 @@
+---
+const {navItems} = Astro.props;
+---
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-start">
+        {
+            navItems.map((item, index) => (
+                <a class="navbar-item" href={item.path}>{item.title}</a>
+            ))
+        }
+    </div>
+</nav>
