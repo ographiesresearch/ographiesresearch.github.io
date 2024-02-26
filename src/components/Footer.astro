@@ -16,7 +16,7 @@ const {navItems} = Astro.props;
       <div class="block">
           {
             comp.socials.map((platform) => (
-                <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size=28 /></a></span>
+                <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
             ))
           }
       </div>
