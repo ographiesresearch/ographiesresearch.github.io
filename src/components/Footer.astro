@@ -5,18 +5,18 @@ import comp from "../config.json";
 const {navItems} = Astro.props;
 ---
 
-<footer class="footer">
+<footer class="footer has-background-danger">
   <section class="section">
   <div class="columns">
     <div class="column is-one-third">
       <div class="block">
-        <p class="title is-6">{comp.name}{comp.corp_form && ", ".concat(comp.corp_form)}</p>
-        <p class="subtitle is-6">{comp.subtitle}</p>
+        <p class="title is-6 has-text-white">{comp.name}{comp.corp_form && ", ".concat(comp.corp_form)}</p>
+        <p class="subtitle is-6 has-text-white">{comp.subtitle}</p>
       </div>
       <div class="block">
           {
             comp.socials.map((platform) => (
-                <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+                <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
             ))
           }
       </div>
@@ -25,17 +25,17 @@ const {navItems} = Astro.props;
       <ul>
       {
             navItems.map((item) => (
-                <li><a href={item.path}>{item.title}</a></li>
+                <li><a href={item.path} class="has-text-white">{item.title}</a></li>
             ))
       }
       </ul>
     </div>
     <div class="column is-one-third">
       <ul>
-        <li>{comp.email && <a href={"mailto:".concat(comp.email)}>{comp.email}</a>}</li>
-        <li>{comp.phone && <a href={"tel:".concat(comp.phone)}>{comp.phone}</a>}</li>
-        <li>{comp.office.address}</li>
-        <li>{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
+        <li>{comp.email && <a href={"mailto:".concat(comp.email)} class="has-text-white">{comp.email}</a>}</li>
+        <li>{comp.phone && <a href={"tel:".concat(comp.phone)} class="has-text-white">{comp.phone}</a>}</li>
+        <li class="has-text-white">{comp.office.address}</li>
+        <li class="has-text-white">{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
       </ul>
     </div>
   </div>

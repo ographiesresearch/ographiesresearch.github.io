@@ -2,11 +2,14 @@
 const { title, subtitle } = Astro.props;
 ---
 
-<section class="hero is-fullheight">
-    <div class="hero-body">
+<section class="hero is-fullheight" id="map" style="mix-blend-mode: screen;">
+    <div>
+        <slot/>
+    </div>
+    <div class="hero-body" style="z-index:1000">
         <div class="" >
-            <h1 class="title"> {title}</h1>
-            <p class="subtitle">{subtitle}</p>
+            <h1 class="title has-text-white is-size-1"> {title}</h1>
+            <p class="subtitle has-text-white is-size-1">{subtitle}</p>
         </div>
     </div>
 </section>

@@ -1,8 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import Globe from '../components/Globe.astro';
 import data from "../config.json";
 ---
 <BaseLayout name={data.name}>
-	<Hero title={data.name} subtitle={data.subtitle}/>
+	<Hero title={data.name}, subtitle={data.subtitle}/>
+	<Globe seconds={600},
+	lat={42}, 
+	lng={-72}, 
+	zoom={5}, 
+	mapstyle={"mapbox://styles/ericrobskyhuntley/clt21v30001va01p44n0jd47d"}, 
+	bearing={180}, 
+	interactive={true}
+	accesstoken={process.env.MAPBOX_KEY}/>
 </BaseLayout>

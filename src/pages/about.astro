@@ -8,23 +8,23 @@ import comp from "../config.json";
 <ContentLayout name={comp.name}>
   <div class="columns">
     <div class="column is-one-half">
-        <div class="box">
+        <div class="box has-background-danger">
           <div class="block">
-            <p class="title is-4">{comp.name}</p>
-            <p class="subtitle is-4">{comp.subtitle}</p>
+            <p class="title is-4 has-text-white">{comp.name}</p>
+            <p class="subtitle is-4 has-text-white">{comp.subtitle}</p>
           </div>
           <div class="block">
             <ul>
-              <li>{comp.email && <a href={"mailto:".concat(comp.email)}>{comp.email}</a>}</li>
-              <li>{comp.phone && <a href={"tel:".concat(comp.phone)}>{comp.phone}</a>}</li>
-              <li>{comp.office.address}</li>
-              <li>{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
+              <li>{comp.email && <a href={"mailto:".concat(comp.email)} class="has-text-white">{comp.email}</a>}</li>
+              <li>{comp.phone && <a href={"tel:".concat(comp.phone)} class="has-text-white">{comp.phone}</a>}</li>
+              <li class="has-text-white">{comp.office.address}</li>
+              <li class="has-text-white">{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
             </ul>
           </div>
           <div class="block">
               {
                 comp.socials.map((platform) => (
-                  <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+                  <span><a href={platform.url}  class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
                 ))
               }
           </div>
@@ -33,20 +33,20 @@ import comp from "../config.json";
     <div class="column is-one-half">
     {
         people.leadership.map((person) => (
-            <div class="box">
+            <div class="box has-background-danger">
               <div class="block">
-                <p class="title is-4">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
-                <p class="subtitle is-4">{person.roles && person.roles.join(", ")}</p>
-                <p>{person.email && <a href={"mailto:".concat(person.email)}>{person.email}</a>}</p>
+                <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
+                <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
+                <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
               </div>
               <div class="block">
-                <p>{person.bio}</p>
+                <p  class="has-text-white">{person.bio}</p>
               </div>
               <div class="block">
                 <div class="tags">
                   {
                     person.skills.map((skill) => (
-                      <span class="tag is-primary">{skill}</span>
+                      <span class="tag is-info">{skill}</span>
                     ))
                   }
                 </div>
@@ -54,7 +54,7 @@ import comp from "../config.json";
               <div class="block">
                   {
                     person.socials.map((platform) => (
-                      <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+                      <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
                     ))
                   }
               </div>
