@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url sass/styles.scss css/styles.css",
+    "css-build": "node-sass --omit-source-map-url src/sass/styles.scss src/css/styles.css",
     "css-watch": "npm run css-build -- --watch",
     "dev": "npm run css-build & astro dev & npm run css-watch",
     "start": "npm run css-build & astro dev & npm run css-watch",
