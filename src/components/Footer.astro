@@ -2,6 +2,11 @@
 import { Icon } from 'astro-icon/components'
 
 import comp from "../config.json";
+
+interface Props {
+  navItems: object[];
+}
+
 const {navItems} = Astro.props;
 ---
 

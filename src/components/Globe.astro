@@ -1,5 +1,15 @@
 ---
 import 'mapbox-gl/dist/mapbox-gl.css';
+interface Props {
+  lng: number;
+  lat: number;
+  zoom: number;
+  mapstyle: string;
+  bearing: number;
+  accesstoken: string;
+  interactive: boolean;
+  seconds: number;
+}
 const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive, seconds} = Astro.props;
 ---
 
@@ -33,20 +43,20 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive, seconds} = 
                 style: this.dataset.mapstyle
             })
 
-            // map.on('moveend', () => {
-            //     spinGlobe();
-            // });
+            function spinGlobe() {
+                let distancePerSecond = 360 / seconds;
+                const cnt = map.getCenter();
+                cnt.lng -= distancePerSecond;
+                // Smoothly animate the map over one second.
+                // When this animation is complete, it calls a 'moveend' event.
+                map.easeTo({ cnt, duration: 1000, easing: (n) => n });
+            }
 
-            // function spinGlobe() {
-            //     let distancePerSecond = 360 / seconds;
-            //     const cnt = map.getCenter();
-            //     cnt.lng -= distancePerSecond;
-            //     // Smoothly animate the map over one second.
-            //     // When this animation is complete, it calls a 'moveend' event.
-            //     map.easeTo({ cnt, duration: 1000, easing: (n) => n });
-            // }
+            map.on('moveend', () => {
+                spinGlobe();
+            });
             
-            // spinGlobe();
+            spinGlobe();
         }
     } 
     customElements.define("mapbox-map", MapboxMap);

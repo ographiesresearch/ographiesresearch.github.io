@@ -1,5 +1,9 @@
 ---
-import Navbar from './Navbar.astro';
+import Navbar from '@components/Navbar.astro';
+
+interface Props {
+  navItems: object[];
+}
 
 const {navItems} = Astro.props;
 ---
