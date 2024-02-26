@@ -3,10 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url src/sass/styles.scss src/css/styles.css",
-    "css-watch": "npm run css-build -- --watch",
-    "dev": "npm run css-build & astro dev & npm run css-watch",
-    "start": "npm run css-build & astro dev & npm run css-watch",
+    "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -18,6 +16,7 @@
     "bulma": "^0.9.4",
     "mapbox-gl": "^3.1.2",
     "node-sass": "^9.0.0",
+    "sass": "^1.71.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
