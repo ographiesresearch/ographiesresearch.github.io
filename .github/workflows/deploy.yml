@@ -26,8 +26,8 @@ jobs:
       - name: Compile CSS from SCSS files
         uses: gha-utilities/sass-build@v0.5.1
         with:
-            source: ./scss/main.scss
-            destination:  ./css/main.css 
+            source: /scss/main.scss
+            destination:  /css/main.css 
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         # with:
