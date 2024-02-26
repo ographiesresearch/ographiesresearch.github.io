@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 env:
-  MAPBOX_KEY: ${{ secrets.MAPBOX_KEY }}
+  PUBLIC_MAPBOX_KEY: ${{ vars.PUBLIC_MAPBOX_KEY }}
 
 on:
   # Trigger the workflow every time you push to the `main` branch
