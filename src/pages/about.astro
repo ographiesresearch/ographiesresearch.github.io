@@ -1,5 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
+import { Icon } from 'astro-icon/components'
 
 import people from "../people.json";
 import comp from "../config.json";
@@ -14,34 +15,48 @@ import comp from "../config.json";
           </div>
           <div class="block">
             <ul>
-              {
-                comp.socials.map((item) => (
-                    <li><a href={item.url}>{item.name}</a></li>
-                ))
-              }
-            </ul>
-          </div>
-          <div class="block">
-            <ul>
               <li>{comp.email && <a href={"mailto:".concat(comp.email)}>{comp.email}</a>}</li>
               <li>{comp.phone && <a href={"tel:".concat(comp.phone)}>{comp.phone}</a>}</li>
               <li>{comp.office.address}</li>
               <li>{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
             </ul>
           </div>
+          <div class="block">
+              {
+                comp.socials.map((platform) => (
+                  <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size=28 /></a></span>
+                ))
+              }
+          </div>
         </div>
     </div>
     <div class="column is-one-half">
     {
-        people.leadership.map((item) => (
+        people.leadership.map((person) => (
             <div class="box">
               <div class="block">
-                <p class="title is-4">{item.name}{item.creds && ", ".concat(item.creds.join(", "))} {item.pronouns  && <span class="has-text-weight-light">({item.pronouns})</span>}</p>
-                <p class="subtitle is-4">{item.roles && item.roles.join(", ")}</p>
-                <p>{item.email && <a href={"mailto:".concat(item.email)}>{item.email}</a>}</p>
+                <p class="title is-4">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
+                <p class="subtitle is-4">{person.roles && person.roles.join(", ")}</p>
+                <p>{person.email && <a href={"mailto:".concat(person.email)}>{person.email}</a>}</p>
               </div>
               <div class="block">
-                <p>{item.bio}</p>
+                <p>{person.bio}</p>
+              </div>
+              <div class="block">
+                <div class="tags">
+                  {
+                    person.skills.map((skill) => (
+                      <span class="tag is-primary">{skill}</span>
+                    ))
+                  }
+                </div>
+              </div>
+              <div class="block">
+                  {
+                    person.socials.map((platform) => (
+                      <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size=28 /></a></span>
+                    ))
+                  }
               </div>
             </div>
         ))

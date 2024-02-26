@@ -1,26 +1,24 @@
 ---
-const platform = "github";
-const username = "ographies";
+import { Icon } from 'astro-icon/components'
 
 import comp from "../config.json";
 const {navItems} = Astro.props;
 ---
 
 <footer class="footer">
+  <section class="section">
   <div class="columns">
     <div class="column is-one-third">
       <div class="block">
-        <p class="title is-6">{comp.name}</p>
+        <p class="title is-6">{comp.name}{comp.corp_form && ", ".concat(comp.corp_form)}</p>
         <p class="subtitle is-6">{comp.subtitle}</p>
       </div>
       <div class="block">
-        <ul>
           {
-            comp.socials.map((item) => (
-                <li><a href={item.url}>{item.name}</a></li>
+            comp.socials.map((platform) => (
+                <span><a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size=28 /></a></span>
             ))
           }
-        </ul>
       </div>
     </div>
     <div class="column is-one-third">
@@ -41,4 +39,5 @@ const {navItems} = Astro.props;
       </ul>
     </div>
   </div>
+  </section>
 </footer>
