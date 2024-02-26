@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - name: Make destination directory for compiled CSS
+        run: mkdir -vp ./css
       - name: Install, build, and upload your site
         uses: withastro/action@v2
       - name: Compile CSS from SCSS files
