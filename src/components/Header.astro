@@ -2,10 +2,10 @@
 import Navbar from '@components/Navbar.astro';
 
 interface Props {
-  navItems: [{
+  navItems: {
     path: string;
     title: string;
-  }];
+  }[];
 }
 
 const {navItems} = Astro.props;

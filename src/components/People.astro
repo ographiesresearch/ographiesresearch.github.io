@@ -2,7 +2,7 @@
 import Person from '@components/Person.astro';
 
 interface Props {
-  people: [{
+  people: {
     name: string;
     creds?: string[];
     pronouns?: string;
@@ -10,11 +10,11 @@ interface Props {
     email: string;
     bio: string;
     skills: string[];
-    socials?: [{
+    socials?: {
       url?: string;
       name?: string;
-    }];
-  }]
+    }[];
+  }[];
 }
 
 const { people } = Astro.props;
