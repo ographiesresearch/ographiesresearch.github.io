@@ -31,6 +31,7 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
         constructor() {
             super()
             let dest = [-80, 42]
+            let sec = Number(this.dataset.sec);
             mapboxgl.accessToken = this.dataset.accesstoken
             const map = new mapboxgl.Map({
                 container: 'map',
@@ -42,7 +43,7 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
                 style: this.dataset.mapstyle
             })
 
-            if(this.dataset.sec > 0) {
+            if(sec > 0) {
                 function spinGlobe(sec: number) {
                     let distancePerSecond = 360 / sec;
                     let cnt = map.getCenter();
@@ -50,9 +51,9 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
                     map.easeTo({ cnt, duration: 1000, easing: (n) => n });
                 }
                 map.on('moveend', () => {
-                    spinGlobe(this.dataset.sec);
+                    spinGlobe(sec);
                 });
-                spinGlobe(this.dataset.sec);
+                spinGlobe(sec);
             }
         }
     } 
