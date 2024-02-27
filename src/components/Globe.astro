@@ -7,56 +7,53 @@ interface Props {
   mapstyle: string;
   bearing: number;
   accesstoken: string;
-  interactive: boolean;
-  seconds: number;
+  interactive?: boolean;
+  sec?: number;
 }
-const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive, seconds} = Astro.props;
+const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec} = Astro.props;
+
 ---
 
-<mapbox-map
+<mapbox-map 
   data-lat={lat}
   data-lng={lng}
   data-zoom={zoom}
   data-mapstyle={mapstyle}
-  data-seconds={seconds}
   data-bearing={bearing}
   data-accesstoken={accesstoken}
   data-interactive={interactive}
+  data-sec={sec}
 >
 
 <script>
     import mapboxgl from "mapbox-gl"
-  
     class MapboxMap extends HTMLElement {
         constructor() {
             super()
-
+            let dest = [-80, 42]
             mapboxgl.accessToken = this.dataset.accesstoken
-            let seconds = this.dataset.seconds;
             const map = new mapboxgl.Map({
                 container: 'map',
                 projection: 'globe',
                 center: [this.dataset.lng, this.dataset.lat],
-                // interactive: this.dataset.interactive,
+                interactive: this.dataset.interactive,
                 bearing: this.dataset.bearing,
                 zoom: this.dataset.zoom,
                 style: this.dataset.mapstyle
             })
 
-            function spinGlobe() {
-                let distancePerSecond = 360 / seconds;
-                const cnt = map.getCenter();
-                cnt.lng -= distancePerSecond;
-                // Smoothly animate the map over one second.
-                // When this animation is complete, it calls a 'moveend' event.
-                map.easeTo({ cnt, duration: 1000, easing: (n) => n });
+            if(this.dataset.sec > 0) {
+                function spinGlobe(sec: number) {
+                    let distancePerSecond = 360 / sec;
+                    let cnt = map.getCenter();
+                    cnt.lng -= distancePerSecond;
+                    map.easeTo({ cnt, duration: 1000, easing: (n) => n });
+                }
+                map.on('moveend', () => {
+                    spinGlobe(this.dataset.sec);
+                });
+                spinGlobe(this.dataset.sec);
             }
-
-            map.on('moveend', () => {
-                spinGlobe();
-            });
-            
-            spinGlobe();
         }
     } 
     customElements.define("mapbox-map", MapboxMap);

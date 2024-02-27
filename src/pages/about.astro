@@ -1,6 +1,7 @@
 ---
-import ContentLayout from '../layouts/ContentLayout.astro';
-import { Icon } from 'astro-icon/components'
+import ContentLayout from '@layouts/ContentLayout.astro'
+import People from '@components/People.astro'
+import Organization from '@components/Organization.astro'
 
 import people from "../people.json";
 import comp from "../config.json";
@@ -8,59 +9,10 @@ import comp from "../config.json";
 <ContentLayout name={comp.name}>
   <div class="columns">
     <div class="column is-one-half">
-        <div class="box has-background-danger">
-          <div class="block">
-            <p class="title is-4 has-text-white">{comp.name}</p>
-            <p class="subtitle is-4 has-text-white">{comp.subtitle}</p>
-          </div>
-          <div class="block">
-            <ul>
-              <li>{comp.email && <a href={"mailto:".concat(comp.email)} class="has-text-white">{comp.email}</a>}</li>
-              <li>{comp.phone && <a href={"tel:".concat(comp.phone)} class="has-text-white">{comp.phone}</a>}</li>
-              <li class="has-text-white">{comp.office.address}</li>
-              <li class="has-text-white">{comp.office.city}, {comp.office.state} {comp.office.postal}</li>
-            </ul>
-          </div>
-          <div class="block">
-              {
-                comp.socials.map((platform) => (
-                  <span><a href={platform.url}  class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
-                ))
-              }
-          </div>
-        </div>
+        <Organization org={comp}/>
     </div>
     <div class="column is-one-half">
-    {
-        people.leadership.map((person) => (
-            <div class="box has-background-danger">
-              <div class="block">
-                <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
-                <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
-                <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
-              </div>
-              <div class="block">
-                <p  class="has-text-white">{person.bio}</p>
-              </div>
-              <div class="block">
-                <div class="tags">
-                  {
-                    person.skills.map((skill) => (
-                      <span class="tag is-info">{skill}</span>
-                    ))
-                  }
-                </div>
-              </div>
-              <div class="block">
-                  {
-                    person.socials.map((platform) => (
-                      <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
-                    ))
-                  }
-              </div>
-            </div>
-        ))
-    }
+      <People people={people.leadership} />
     </div>
   </div>
 </ContentLayout>

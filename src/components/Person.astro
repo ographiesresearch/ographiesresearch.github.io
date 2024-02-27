@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components'
+interface Props {
+  person: object;
+}
+
+const { person } = Astro.props;
+---
+
+<div class="box has-background-danger">
+    <div class="block">
+      <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
+      <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
+      <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
+    </div>
+    <div class="block">
+      <p  class="has-text-white">{person.bio}</p>
+    </div>
+    <div class="block">
+      <div class="tags">
+        {
+          person.skills.map((skill) => (
+            <span class="tag is-success">{skill}</span>
+          ))
+        }
+      </div>
+    </div>
+    <div class="block">
+        {
+          person.socials.map((platform) => (
+            <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+          ))
+        }
+    </div>
+  </div>
