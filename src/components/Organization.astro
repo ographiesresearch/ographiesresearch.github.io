@@ -1,7 +1,22 @@
 ---
 import { Icon } from 'astro-icon/components'
 interface Props {
-  org: object;
+  org: {
+    name: string;
+    subtitle?: string;
+    email?: string;
+    phone?: string;
+    office?: {
+      address?: string;
+      city?: string;
+      state?: string;
+      postal?: string;
+    };
+    socials?: {
+      url?: string;
+      name?: string;
+    };
+  };
 }
 
 const { org } = Astro.props;

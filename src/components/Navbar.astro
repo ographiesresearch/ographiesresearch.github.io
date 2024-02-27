@@ -9,7 +9,7 @@ const {navItems} = Astro.props;
 <nav class="navbar has-background-danger" role="navigation" aria-label="main navigation">
     <div class="navbar-start">
         {
-            navItems.map((item, index) => (
+            navItems.map((item) => (
                 <a class="navbar-item has-text-white" href={item.path}>{item.title}</a>
             ))
         }
