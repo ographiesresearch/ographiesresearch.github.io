@@ -1,11 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import comp from "../config.json";
-
 interface Props {
-  navItems: object[];
+  navItems: [{
+    path: string;
+    title: string;
+  }];
 }
+
+import comp from "../config.json";
 
 const { navItems } = Astro.props;
 ---
