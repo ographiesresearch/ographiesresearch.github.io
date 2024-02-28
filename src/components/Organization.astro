@@ -9,6 +9,7 @@ interface Props {
     subtitle?: string;
     email?: string;
     phone?: string;
+    bookingurl?: string;
     description?: string;
     office?: {
       address?: string;
@@ -41,6 +42,11 @@ const { org } = Astro.props;
       <li class="has-text-white">{org.office.city}, {org.office.state} {org.office.postal}</li>
     </ul>
   </div>
+  {"bookingurl" in org && 
+  <div class="block">
+    <a href={org.bookingurl} class="button is-success">Book a Consultation</a>
+  </div>
+  }
   <div class="block">
       {
         org.socials.map((platform) => (

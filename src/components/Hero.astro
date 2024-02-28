@@ -7,10 +7,7 @@ interface Props {
 const { title, subtitle } = Astro.props;
 ---
 
-<section class="hero is-fullheight" id="map" style="mix-blend-mode: screen;">
-    <div>
-        <slot/>
-    </div>
+<section class="hero is-fullheight">
     <div class="hero-body" style="z-index:1000">
         <div class="" >
             <h1 class="title has-text-white is-size-1"> {title}</h1>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   name: string;
@@ -15,3 +16,5 @@ const { name } = Astro.props;
         </div>
     </section>
 </BaseLayout>
+
+<ViewTransitions />

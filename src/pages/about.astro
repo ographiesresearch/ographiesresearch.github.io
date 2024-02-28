@@ -2,6 +2,7 @@
 import ContentLayout from '@layouts/ContentLayout.astro'
 import People from '@components/People.astro'
 import Organization from '@components/Organization.astro'
+import { fade } from 'astro:transitions';
 
 import data from "@src/config.json";
 
@@ -9,9 +10,10 @@ let leadership = data.people.filter(function(person) {
       return person.leadership;
  });
 
- let others = data.people.filter(function(person) {
+ let people = data.people.filter(function(person) {
       return !person.leadership;
  });
+ console.log(people.length);
 ---
 <ContentLayout name={data.name}>
   <section class="section">
@@ -24,9 +26,11 @@ let leadership = data.people.filter(function(person) {
     </div>
   </div>
   </section>
-  <section class="section">
-    <h1 class="title has-text-white">Who We Are</h1>
-      <People people={others} columns={true} />
-  </section>
+  {(people.length >0 ) &&
+    <section class="section">
+      <h1 class="title has-text-white">Who We Are</h1>
+        <People people={people} columns={true} />
+    </section>
+  }
   
 </ContentLayout>

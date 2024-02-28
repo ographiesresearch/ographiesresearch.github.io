@@ -14,6 +14,7 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
 
 ---
 
+<div transition:persist id="map"/>
 <mapbox-map
     data-lat={lat}
     data-lng={lng}
@@ -54,3 +55,14 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
     } 
     customElements.define("mapbox-map", MapboxMap);
 </script>
+
+<style>
+    #map {
+        mix-blend-mode: screen;
+        height: 100%;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        z-index: -1;
+    }
+</style>

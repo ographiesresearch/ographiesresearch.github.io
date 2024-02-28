@@ -1,10 +1,14 @@
 ---
-import { Icon } from 'astro-icon/components'
-import markdownit from 'markdown-it'
-const md = markdownit()
+import { Icon } from 'astro-icon/components';
+
+import markdownit from 'markdown-it';
+
+const md = markdownit();
+
 interface Props {
   person: {
     name: string;
+    photo?: string;
     creds?: string[];
     pronouns?: string;
     roles?: string[];
@@ -24,14 +28,26 @@ const { person, columns = false} = Astro.props;
 <div class={columns ? "column is-half" : ""}>
   <div class="box has-background-danger">
     <div class="block">
-      <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
-      <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
-      <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          {"photo" in person && 
+            <div class="tile is-child is-3">
+              <figure class="image is-128x128">
+                <img src={"src/assets/".concat(person.photo)} alt={"Photo of ".concat(person.name)}/>
+              </figure>
+            </div>}
+          <div class="tile is-child">
+            <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
+            <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
+            <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="block">
       <p class="has-text-white" set:html={md.renderInline(person.bio)}></p>
     </div>
-    <div class="block">
+    <!-- <div class="block">
       <div class="tags">
         {
           person.skills.map((skill) => (
@@ -39,7 +55,7 @@ const { person, columns = false} = Astro.props;
           ))
         }
       </div>
-    </div>
+    </div> -->
     <div class="block">
         {
           person.socials.map((platform) => (
@@ -49,3 +65,11 @@ const { person, columns = false} = Astro.props;
     </div>
   </div>
 </div>
+
+<style>
+img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  mix-blend-mode: screen;
+}
+</style>

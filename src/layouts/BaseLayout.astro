@@ -1,6 +1,10 @@
 ---
 import Header from '@components/Header.astro';
+import Globe from '@components/Globe.astro';
 import Footer from '@components/Footer.astro';
+import Background from '@components/Background.astro';
+
+import { ViewTransitions } from 'astro:transitions';
 
 import '../sass/styles.scss';
 
@@ -32,9 +36,23 @@ const navItems = [
 		<meta name="generator" content={Astro.generator} />
 		<title>{name}</title>
 	</head>
-	<body class="has-background-danger">
+	<body>
+		<div>
 		<Header {navItems}/>
 		<slot/>
 		<Footer {navItems}/>
+		</div>
+		<Globe 
+		sec={50000},
+		lat={42.389118}, 
+		lng={-71.097153}, 
+		zoom={11}, 
+		mapstyle={"mapbox://styles/ericrobskyhuntley/clt21v30001va01p44n0jd47d"}, 
+		bearing={90}, 
+		interactive={true},
+		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
+		<Background/>
 	</body>
 </html>
+
+<ViewTransitions />
