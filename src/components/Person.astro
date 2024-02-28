@@ -26,8 +26,9 @@ interface Props {
 const { person, columns = false} = Astro.props;
 
 let photopath = person.photo && '/src/assets/'.concat(person.photo);
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-const images = import.meta.glob('/src/assets/*.{jpeg,jpg,png,gif}')
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
 
 ---
 <div class={columns ? "column is-half" : ""}>
