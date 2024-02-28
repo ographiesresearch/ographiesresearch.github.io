@@ -43,8 +43,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
               </figure>
             </div>}
           <div class="tile is-child">
-            <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
+            <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
             <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
+            <p class="has-text-white">{person.pronouns}</p>
             <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
           </div>
         </div>
