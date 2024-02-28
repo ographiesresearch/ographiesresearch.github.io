@@ -8,7 +8,7 @@ const md = markdownit();
 interface Props {
   person: {
     name: string;
-    photo?: string;
+    photo: string;
     creds?: string[];
     pronouns?: string;
     roles?: string[];
@@ -24,6 +24,11 @@ interface Props {
 }
 
 const { person, columns = false} = Astro.props;
+
+let photopath = person.photo && '/src/assets/'.concat(person.photo);
+import { Image } from 'astro:assets';
+const images = import.meta.glob('/src/assets/*.{jpeg,jpg,png,gif}')
+
 ---
 <div class={columns ? "column is-half" : ""}>
   <div class="box has-background-danger">
@@ -33,7 +38,7 @@ const { person, columns = false} = Astro.props;
           {"photo" in person && 
             <div class="tile is-child is-3">
               <figure class="image is-128x128">
-                <img src={"src/assets/".concat(person.photo)} alt={"Photo of ".concat(person.name)}/>
+                <Image src={images[photopath]()} alt={"Photo of ".concat(person.name)} />
               </figure>
             </div>}
           <div class="tile is-child">
