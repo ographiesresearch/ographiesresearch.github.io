@@ -14,24 +14,22 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
 
 ---
 
-<mapbox-map 
-  data-lat={lat}
-  data-lng={lng}
-  data-zoom={zoom}
-  data-mapstyle={mapstyle}
-  data-bearing={bearing}
-  data-accesstoken={accesstoken}
-  data-interactive={interactive}
-  data-sec={sec}
->
+<mapbox-map
+    data-lat={lat}
+    data-lng={lng}
+    data-zoom={zoom}
+    data-mapstyle={mapstyle}
+    data-bearing={bearing}
+    data-accesstoken={accesstoken}
+    data-interactive={interactive}
+    data-sec={sec}
+/>
 
 <script>
     import mapboxgl from "mapbox-gl"
     class MapboxMap extends HTMLElement {
         constructor() {
             super()
-            let dest = [-80, 42]
-            let sec = Number(this.dataset.sec);
             mapboxgl.accessToken = this.dataset.accesstoken
             const map = new mapboxgl.Map({
                 container: 'map',
@@ -42,19 +40,16 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
                 zoom: this.dataset.zoom,
                 style: this.dataset.mapstyle
             })
+            map.on('moveend', () => {
+                this.spinGlobe(map);
+            });
+            this.spinGlobe(map);
+        }
 
-            if(sec > 0) {
-                function spinGlobe(sec: number) {
-                    let distancePerSecond = 360 / sec;
-                    let cnt = map.getCenter();
-                    cnt.lng -= distancePerSecond;
-                    map.easeTo({ cnt, duration: 1000, easing: (n) => n });
-                }
-                map.on('moveend', () => {
-                    spinGlobe(sec);
-                });
-                spinGlobe(sec);
-            }
+        spinGlobe(map) {
+            let cnt = map.getCenter();
+            cnt.lng -= 360 / Number(this.dataset.sec);
+            map.easeTo({ center: cnt, duration: 1000, easing: (n) => n });
         }
     } 
     customElements.define("mapbox-map", MapboxMap);
