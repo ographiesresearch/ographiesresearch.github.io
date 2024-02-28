@@ -1,11 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components'
+import markdownit from 'markdown-it'
+const md = markdownit()
+
 interface Props {
   org: {
     name: string;
     subtitle?: string;
     email?: string;
     phone?: string;
+    description?: string;
     office?: {
       address?: string;
       city?: string;
@@ -21,25 +25,27 @@ interface Props {
 
 const { org } = Astro.props;
 ---
-
 <div class="box has-background-danger">
-    <div class="block">
-      <p class="title is-4 has-text-white">{org.name}</p>
-      <p class="subtitle is-4 has-text-white">{org.subtitle}</p>
-    </div>
-    <div class="block">
-      <ul>
-        <li>{org.email && <a href={"mailto:".concat(org.email)} class="has-text-white">{org.email}</a>}</li>
-        <li>{org.phone && <a href={"tel:".concat(org.phone)} class="has-text-white">{org.phone}</a>}</li>
-        <li class="has-text-white">{org.office.address}</li>
-        <li class="has-text-white">{org.office.city}, {org.office.state} {org.office.postal}</li>
-      </ul>
-    </div>
-    <div class="block">
-        {
-          org.socials.map((platform) => (
-            <span><a href={platform.url}  class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
-          ))
-        }
-    </div>
+  <div class="block">
+    <p class="title is-4 has-text-white">{org.name}</p>
+    <p class="subtitle is-4 has-text-white">{org.subtitle}</p>
   </div>
+  <div class="block">
+    <p class="has-text-white" set:html={md.renderInline(org.description)}></p>
+  </div>
+  <div class="block">
+    <ul>
+      <li>{org.email && <a href={"mailto:".concat(org.email)} class="has-text-white">{org.email}</a>}</li>
+      <li>{org.phone && <a href={"tel:".concat(org.phone)} class="has-text-white">{org.phone}</a>}</li>
+      <li class="has-text-white">{org.office.address}</li>
+      <li class="has-text-white">{org.office.city}, {org.office.state} {org.office.postal}</li>
+    </ul>
+  </div>
+  <div class="block">
+      {
+        org.socials.map((platform) => (
+          <span><a href={platform.url}  class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+        ))
+      }
+  </div>
+</div>

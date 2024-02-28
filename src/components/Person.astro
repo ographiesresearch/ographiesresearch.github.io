@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
+import markdownit from 'markdown-it'
+const md = markdownit()
 interface Props {
   person: {
     name: string;
@@ -14,19 +16,20 @@ interface Props {
       name?: string;
     }[];
   };
+  columns?: boolean;
 }
 
-const { person } = Astro.props;
+const { person, columns = false} = Astro.props;
 ---
-
-<div class="box has-background-danger">
+<div class={columns ? "column is-half" : ""}>
+  <div class="box has-background-danger">
     <div class="block">
       <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))} {person.pronouns  && <span class="has-text-weight-light">({person.pronouns})</span>}</p>
       <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
       <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
     </div>
     <div class="block">
-      <p  class="has-text-white">{person.bio}</p>
+      <p class="has-text-white" set:html={md.renderInline(person.bio)}></p>
     </div>
     <div class="block">
       <div class="tags">
@@ -45,3 +48,4 @@ const { person } = Astro.props;
         }
     </div>
   </div>
+</div>

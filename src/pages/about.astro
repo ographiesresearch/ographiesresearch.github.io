@@ -4,14 +4,29 @@ import People from '@components/People.astro'
 import Organization from '@components/Organization.astro'
 
 import data from "@src/config.json";
+
+let leadership = data.people.filter(function(person) {
+      return person.leadership;
+ });
+
+ let others = data.people.filter(function(person) {
+      return !person.leadership;
+ });
 ---
 <ContentLayout name={data.name}>
+  <section class="section">
   <div class="columns">
     <div class="column is-one-half">
         <Organization org={data}/>
     </div>
     <div class="column is-one-half">
-      <People people={data.people.leadership} />
+      <People people={leadership} />
     </div>
   </div>
+  </section>
+  <section class="section">
+    <h1 class="title has-text-white">Who We Are</h1>
+      <People people={others} columns={true} />
+  </section>
+  
 </ContentLayout>

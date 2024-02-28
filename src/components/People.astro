@@ -15,13 +15,15 @@ interface Props {
       name?: string;
     }[];
   }[];
+  columns?: boolean;
 }
 
-const { people } = Astro.props;
+const { people, columns = false } = Astro.props;
 ---
-
+<div class={columns ? "columns is-multiline" : ""}>
 {
   people.map((person) => (
-    <Person {person} />
+    <Person {person} columns = {columns} />
   ))
 }
+</div>
