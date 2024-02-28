@@ -2,7 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import Globe from '@components/Globe.astro';
-import data from "../config.json";
+import data from "@src/config.json";
 ---
 <BaseLayout name={data.name}>
 	<Hero title={data.name}, subtitle={data.subtitle}/>
