@@ -16,9 +16,9 @@ permissions:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     env:
       PUBLIC_MAPBOX_KEY: ${{ vars.PUBLIC_MAPBOX_KEY }}
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
