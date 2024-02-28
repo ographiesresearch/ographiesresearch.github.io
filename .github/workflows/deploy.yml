@@ -16,15 +16,12 @@ permissions:
 
 jobs:
   build:
+    env:
+      PUBLIC_MAPBOX_KEY: ${{ vars.PUBLIC_MAPBOX_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Creating .env file
-        env:
-          PUBLIC_MAPBOX_KEY: ${{ vars.PUBLIC_MAPBOX_KEY }}
-        run: |
-          echo "PUBLIC_MAPBOX_KEY=${PUBLIC_MAPBOX_KEY}" > .env
       - name: Install, build, and upload your site
         uses: withastro/action@v2
   deploy:
