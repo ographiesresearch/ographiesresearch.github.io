@@ -3,16 +3,15 @@ import ContentLayout from '@layouts/ContentLayout.astro'
 import People from '@components/People.astro'
 import Organization from '@components/Organization.astro'
 
-import people from "../people.json";
-import comp from "../config.json";
+import data from "../config.json";
 ---
-<ContentLayout name={comp.name}>
+<ContentLayout name={data.name}>
   <div class="columns">
     <div class="column is-one-half">
-        <Organization org={comp}/>
+        <Organization org={data}/>
     </div>
     <div class="column is-one-half">
-      <People people={people.leadership} />
+      <People people={data.people.leadership} />
     </div>
   </div>
 </ContentLayout>
