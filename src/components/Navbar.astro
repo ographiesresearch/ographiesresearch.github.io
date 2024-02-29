@@ -24,7 +24,7 @@ const {navItems} = Astro.props;
     <div class="navbar-start is-grouped">
         {
             navItems.map((item) => (
-                <a class="button navbar-item is-fullwidth is-medium is-danger m-2" href={item.path}>{item.title}</a>
+                <a class="button navbar-item is-fullwidth is-medium is-danger m-2 box-shadow-white" href={item.path}>{item.title}</a>
             ))
         }
     </div>
@@ -44,9 +44,3 @@ const {navItems} = Astro.props;
   document.addEventListener('DOMContentLoaded', burgerListener)
   document.addEventListener("astro:after-swap", burgerListener)
 </script>
-
-<style>
-  .button {
-    box-shadow: 3px 3px white;
-  }
-</style>

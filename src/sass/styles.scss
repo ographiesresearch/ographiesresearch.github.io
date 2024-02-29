@@ -1,9 +1,6 @@
 @charset "utf-8";
 
-$danger: rgb(178, 31, 36);
-$success: rgb(102, 14, 17);
-$link: rgb(255, 255, 255);
-$dark: rgba(255, 255, 255, 0);
+@import "_variables.scss";
 
 @import "node_modules/bulma/bulma.sass";
 
@@ -11,10 +8,30 @@ $dark: rgba(255, 255, 255, 0);
     min-height: 60vh;
   }
 
-
-
 @include tablet {
     .tile-image > img {
         padding-right: 1em;
     }
+}
+
+@include mobile {
+    .tile-image > img {
+        padding-bottom: 1em;
+    }
+}
+
+.text-shadow-danger {
+    text-shadow: $shadow-offset $shadow-offset $danger;
+}
+
+.text-shadow-white {
+    text-shadow: $shadow-offset $shadow-offset white;
+}
+
+.box-shadow-danger {
+    box-shadow: $shadow-offset $shadow-offset $danger;
+}
+
+.box-shadow-white {
+    box-shadow: $shadow-offset $shadow-offset white;
 }

@@ -7,13 +7,7 @@ const {columns} = Astro.props;
 ---
 
 <div class={columns ? "column is-half" : ""}>
-    <div class="box has-background-danger">
+    <div class="box has-background-danger box-shadow-white">
         <slot/>
     </div>
 </div>
-
-<style>
-    .box {
-      box-shadow: 3px 3px white;
-    }
-</style>
