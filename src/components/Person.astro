@@ -33,12 +33,10 @@ const { person, columns = false} = Astro.props;
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         {"photo" in person && 
-          <div class="tile is-child is-3">
-            <figure class="image is-128x128">
-              <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
-            </figure>
+          <div class="tile is-child is-4">
+            <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
           </div>}
-        <div class="tile is-child">
+        <div class="tile is-child is-8">
           <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
           <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
           <p class="has-text-white">{person.pronouns}</p>
