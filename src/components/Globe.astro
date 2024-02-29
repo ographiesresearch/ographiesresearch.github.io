@@ -11,7 +11,7 @@ interface Props {
   interactive?: boolean;
   sec?: number;
 }
-const { lng, lat, zoom, mapstyle, bearing, pitch, accesstoken, interactive = false, sec} = Astro.props;
+const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, interactive = false, sec} = Astro.props;
 
 ---
 
