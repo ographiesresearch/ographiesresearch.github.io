@@ -6,11 +6,12 @@ interface Props {
   zoom: number;
   mapstyle: string;
   bearing: number;
+  pitch?: number;
   accesstoken: string;
   interactive?: boolean;
   sec?: number;
 }
-const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec} = Astro.props;
+const { lng, lat, zoom, mapstyle, bearing, pitch, accesstoken, interactive = false, sec} = Astro.props;
 
 ---
 
@@ -22,6 +23,7 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
     data-zoom={zoom}
     data-mapstyle={mapstyle}
     data-bearing={bearing}
+    data-pitch={pitch}
     data-accesstoken={accesstoken}
     data-interactive={interactive}
     data-sec={sec}
@@ -39,6 +41,7 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
                 center: [this.dataset.lng, this.dataset.lat],
                 interactive: this.dataset.interactive,
                 bearing: this.dataset.bearing,
+                pitch: this.dataset.pitch,
                 zoom: this.dataset.zoom,
                 style: this.dataset.mapstyle
             })
@@ -59,7 +62,7 @@ const { lng, lat, zoom, mapstyle, bearing, accesstoken, interactive = false, sec
 
 <style>
     #map {
-        mix-blend-mode: screen;
+        /* mix-blend-mode: screen; */
         height: 100%;
         width: 100vw;
         position: fixed;
