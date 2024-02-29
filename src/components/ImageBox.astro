@@ -12,16 +12,14 @@ import { Image } from 'astro:assets';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
 ---
 
-<figure class="image">
+<figure class="image tile-image">
     <Image src={images[photopath]()} alt={alt} />
 </figure>
 
-
-<style>
+<style type="scss">
     img {
         -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
         filter: grayscale(100%);
         mix-blend-mode: screen;
-        padding-right: 1em;
     }
 </style>
