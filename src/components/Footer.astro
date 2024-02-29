@@ -43,6 +43,7 @@ const { navItems } = Astro.props;
         <li>{data.email && <a href={"mailto:".concat(data.email)} class="has-text-white">{data.email}</a>}</li>
         <li>{data.phone && <a href={"tel:".concat(data.phone)} class="has-text-white">{data.phone}</a>}</li>
         <li class="has-text-white">{data.office.address}</li>
+        <li class="has-text-white">{data.office.address2}</li>
         <li class="has-text-white">{data.office.city}, {data.office.state} {data.office.postal}</li>
       </ul>
     </div>
