@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import AboutCard from '@components/AboutCard.astro'
 import markdownit from 'markdown-it'
 const md = markdownit()
 
@@ -22,11 +23,12 @@ interface Props {
       name?: string;
     }[];
   };
+  columns: boolean;
 }
 
-const { org } = Astro.props;
+const { org, columns = true} = Astro.props;
 ---
-<div class="box has-background-danger">
+<AboutCard columns={columns}>
   <div class="block">
     <p class="title is-4 has-text-white">{org.name}</p>
     <p class="subtitle is-4 has-text-white">{org.subtitle}</p>
@@ -54,4 +56,4 @@ const { org } = Astro.props;
         ))
       }
   </div>
-</div>
+</AboutCard>

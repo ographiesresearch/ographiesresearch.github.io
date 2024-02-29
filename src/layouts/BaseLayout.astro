@@ -4,8 +4,6 @@ import Globe from '@components/Globe.astro';
 import Footer from '@components/Footer.astro';
 import Background from '@components/Background.astro';
 
-import { ViewTransitions } from 'astro:transitions';
-
 import '../sass/styles.scss';
 
 interface Props {
@@ -37,12 +35,15 @@ const navItems = [
 		<title>{name}</title>
 	</head>
 	<body>
-		<div>
-		<Header {navItems}/>
-		<slot/>
+		<section class="section is-fullheight">
+			<Header {navItems}/>
+			<div class="container" id="content">
+				<slot/>
+			</div>
+		</section>
 		<Footer {navItems}/>
-		</div>
-		<Globe 
+		<Globe
+		transition:persist
 		sec={50000},
 		lat={42.389118}, 
 		lng={-71.097153}, 
@@ -54,5 +55,3 @@ const navItems = [
 		<Background/>
 	</body>
 </html>
-
-<ViewTransitions />

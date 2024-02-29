@@ -21,10 +21,8 @@ interface Props {
 
 const { people, columns = false } = Astro.props;
 ---
-<div class={columns ? "columns is-multiline" : ""}>
 {
   people.map((person) => (
     <Person {person} columns = {columns} />
   ))
 }
-</div>

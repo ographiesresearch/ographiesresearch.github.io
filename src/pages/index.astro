@@ -2,7 +2,9 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
 import data from "@src/config.json";
+import { ViewTransitions } from 'astro:transitions';
 ---
 <BaseLayout name={data.name}>
 	<Hero title={data.name}, subtitle={data.subtitle}/>
 </BaseLayout>
+<ViewTransitions/>

@@ -6,3 +6,7 @@ $link: rgb(255, 255, 255);
 $dark: rgba(255, 255, 255, 0);
 
 @import "node_modules/bulma/bulma.sass";
+
+#content {
+    min-height: 60vh;
+  }

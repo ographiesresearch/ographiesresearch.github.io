@@ -1,7 +1,8 @@
 ---
-import ContentLayout from '@layouts/ContentLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 import People from '@components/People.astro'
 import Organization from '@components/Organization.astro'
+import { ViewTransitions } from 'astro:transitions'
 
 import data from "@src/config.json";
 
@@ -12,24 +13,26 @@ let leadership = data.people.filter(function(person) {
  let people = data.people.filter(function(person) {
       return !person.leadership;
  });
- console.log(people.length);
+
 ---
-<ContentLayout name={data.name}>
+<BaseLayout name={data.name}>
   <section class="section">
   <div class="columns">
-    <div class="column is-one-half">
-        <Organization org={data}/>
-    </div>
-    <div class="column is-one-half">
-      <People people={leadership} />
+      <Organization org={data} columns={true}/>
+      <People people={leadership} columns={true}/>
     </div>
   </div>
   </section>
   {(people.length >0 ) &&
     <section class="section">
       <h1 class="title has-text-white">Who We Are</h1>
+        <div class="columns is-multiline">
         <People people={people} columns={true} />
+        </div>
     </section>
   }
-  
-</ContentLayout>
+</BaseLayout>
+<ViewTransitions/>
+
+<style>
+</style>

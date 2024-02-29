@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
+import AboutCard from '@components/AboutCard.astro'
+import ImageBox from '@components/ImageBox.astro'
 
 import markdownit from 'markdown-it';
 
@@ -25,58 +27,34 @@ interface Props {
 
 const { person, columns = false} = Astro.props;
 
-let photopath = person.photo && '/src/assets/'.concat(person.photo);
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
-
 ---
-<div class={columns ? "column is-half" : ""}>
-  <div class="box has-background-danger">
-    <div class="block">
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          {"photo" in person && 
-            <div class="tile is-child is-3">
-              <figure class="image is-128x128">
-                <Image src={images[photopath]()} alt={"Photo of ".concat(person.name)} />
-              </figure>
-            </div>}
-          <div class="tile is-child">
-            <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
-            <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
-            <p class="has-text-white">{person.pronouns}</p>
-            <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
-          </div>
+<AboutCard columns={columns}>
+  <div class="block">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        {"photo" in person && 
+          <div class="tile is-child is-3">
+            <figure class="image is-128x128">
+              <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
+            </figure>
+          </div>}
+        <div class="tile is-child">
+          <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
+          <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
+          <p class="has-text-white">{person.pronouns}</p>
+          <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
         </div>
       </div>
     </div>
-    <div class="block">
-      <p class="has-text-white" set:html={md.renderInline(person.bio)}></p>
-    </div>
-    <!-- <div class="block">
-      <div class="tags">
-        {
-          person.skills.map((skill) => (
-            <span class="tag is-success">{skill}</span>
-          ))
-        }
-      </div>
-    </div> -->
-    <div class="block">
-        {
-          person.socials.map((platform) => (
-            <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
-          ))
-        }
-    </div>
   </div>
-</div>
-
-<style>
-img {
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  mix-blend-mode: screen;
-}
-</style>
+  <div class="block">
+    <p class="has-text-white" set:html={md.renderInline(person.bio)}></p>
+  </div>
+  <div class="block">
+      {
+        person.socials.map((platform) => (
+          <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+        ))
+      }
+  </div>
+</AboutCard>
