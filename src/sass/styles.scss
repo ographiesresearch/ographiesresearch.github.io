@@ -4,6 +4,12 @@
 
 @import "node_modules/bulma/bulma.sass";
 
+@import '@fontsource-variable/noto-sans-hk';
+
+body {
+    font-family: 'Noto Sans HK Variable', sans-serif;
+}
+
 #content {
     min-height: 60vh;
   }
