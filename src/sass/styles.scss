@@ -20,6 +20,15 @@
     }
 }
 
+a {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+}
+
+a.button {
+    text-decoration-line: none;
+}
+
 .text-shadow-danger {
     text-shadow: $shadow-offset $shadow-offset $danger;
 }
