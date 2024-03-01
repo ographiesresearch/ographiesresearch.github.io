@@ -7,11 +7,15 @@ interface Props {
   mapstyle: string;
   bearing: number;
   pitch?: number;
+  color?: string;
   accesstoken: string;
+  linework?: boolean;
+  linewidth?: number;
   interactive?: boolean;
   sec?: number;
 }
-const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, interactive = false, sec} = Astro.props;
+const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#ffffff", linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
+
 
 ---
 
@@ -25,12 +29,17 @@ const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, interactive =
     data-bearing={bearing}
     data-pitch={pitch}
     data-accesstoken={accesstoken}
-    data-interactive={interactive}
+    data-color={color}
+    data-linewidth={linewidth}
+    data-linework={Number(linework)}
+    data-interactive={Number(interactive)}
     data-sec={sec}
 />
 
 <script>
     import mapboxgl from "mapbox-gl"
+    import s from 'src/sass/_variables.module.scss';
+    // console.log(styles);
     class MapboxMap extends HTMLElement {
         constructor() {
             super()
@@ -39,16 +48,50 @@ const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, interactive =
                 container: 'map',
                 projection: 'globe',
                 center: [this.dataset.lng, this.dataset.lat],
-                interactive: this.dataset.interactive,
+                interactive: Boolean(this.dataset.interactive),
                 bearing: this.dataset.bearing,
                 pitch: this.dataset.pitch,
-                zoom: this.dataset.zoom,
-                style: this.dataset.mapstyle
+                zoom: this.dataset.zoom
             })
+
+            map.setStyle(this.dataset.mapstyle);
+
+            if (Boolean(this.dataset.linework)) {
+                map.on('style.load', () => {
+                    this.lineWork(map);
+                })
+            }
             map.on('moveend', () => {
                 this.spinGlobe(map);
             });
             this.spinGlobe(map);
+        }
+
+        lineWork(map) {
+            const layers = map.getStyle().layers;
+            Object.entries(layers).forEach((s) => {
+                if (s[1].type == "line") {
+                        map.setPaintProperty(s[1].id, 'line-color', this.dataset.color);
+                        map.setPaintProperty(s[1].id, 'line-width', Number(this.dataset.linewidth));
+                }
+                if (s[1].type == "fill") {
+                    map.removeLayer(s[1].id)
+                    let id = s[1]['source-layer'].concat("-manual-line");
+                    if(!map.getLayer(id)) {
+                        map.addLayer({
+                            id: id,
+                            source: s[1].source,
+                            "source-layer": s[1]['source-layer'],
+                            type: "line"
+                        })
+                        map.setPaintProperty(id, 'line-color', this.dataset.color);
+                        map.setPaintProperty(id, 'line-width', Number(this.dataset.linewidth));
+                    }
+                }
+                if (['symbol', 'background'].includes(s[1].type) || s[1].id.includes('-case')) {
+                    map.removeLayer(s[1].id)
+                }
+            })
         }
 
         spinGlobe(map) {

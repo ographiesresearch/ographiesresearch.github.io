@@ -1,0 +1,13 @@
+$danger: #460080;
+$success: #460080;
+$link: rgb(255, 255, 255);
+$dark: rgba(255, 255, 255, 0);
+$shadow-offset: 2px;
+
+:export {
+    danger: $danger;
+    success: $success;
+    link: $link;
+    dark: $dark;
+    shadow-offset: $shadow-offset;
+}

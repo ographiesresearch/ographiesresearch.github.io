@@ -24,6 +24,8 @@ const navItems = [
 
 ]
 
+import data from "@src/config.json";
+
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -44,14 +46,17 @@ const navItems = [
 		<Footer {navItems}/>
 		<Globe
 		transition:persist
-		sec={70000},
-		lat={42.389118}, 
-		lng={-70.957153}, 
-		zoom={12}, 
-		mapstyle={"mapbox://styles/ehuntley/clt7tekki00nm01qpd6b464rp"}, 
-		bearing={-90}, 
-		pitch={40},
-		interactive={true},
+		sec={data.map.sec},
+		lat={data.map.lat}, 
+		lng={data.map.lng}, 
+		zoom={data.map.zoom}, 
+		mapstyle={data.map.style}, 
+		bearing={data.map.bearing}, 
+		pitch={data.map.pitch},
+		color={data.map.color},
+		linework={data.map.linework},
+		linewidth={data.map.linewidth},
+		interactive={data.map.interactive},
 		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
 		<Background/>
 	</body>

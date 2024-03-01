@@ -73,5 +73,18 @@
             ],
             "bio": "Milan Chuttani is a research assistant in the Spatial Analysis & Action Research Group and an MCP candidate in the [Department of Urban Studies and Planning at MIT](https://dusp.mit.edu/). Milan's interests are in transforming spatial, qualitative, and quantitative data into compelling narratives that promote health equity. Milan also serves as a data analyst at the [Vital Village Networks](https://www.vitalvillage.org/). Prior to joining DUSP, Milan was an ORISE Fellow at the CDC's Division of Global Migration and Quarantine, developing web applications and GIS tools to support the COVID-19 pandemic response and public health initiatives for globally mobile populations. Milan holds with a Bachelor of Arts in Government from [Dartmouth College](https://home.dartmouth.edu/)."
         }
-    ]
+    ],
+    "map": {
+        "lat": 42.389118,
+        "lng": -70.957153,
+        "zoom": 12,
+        "style": "mapbox://styles/mapbox/streets-v11",
+        "bearing": -90,
+        "pitch": 30,
+        "linework": true,
+        "linewidth": 0.25,
+        "interactive": true,
+        "sec": 150000,
+        "color": "#ffffff"
+    }
 }
