@@ -9,7 +9,7 @@ const {navItems} = Astro.props;
 
 <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand has-background-dark">
-    <a role="button" class="navbar-burger has-text-danger has-background-success" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <a role="button" class="navbar-burger has-text-danger has-background-success box-shadow-danger" data-target="navMenu" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -27,7 +27,6 @@ const {navItems} = Astro.props;
 </nav>
 
 <script>
-
   let burgerListener = () => {
     let $burger = document.querySelector('.navbar-burger')
         $burger.addEventListener('click', () => {
@@ -35,7 +34,12 @@ const {navItems} = Astro.props;
         })
   }
 
-
   document.addEventListener('DOMContentLoaded', burgerListener)
   document.addEventListener("astro:after-swap", burgerListener)
 </script>
+
+<style>
+  .navbar-burger > span {
+    height: 0.12em;
+  }
+</style>
