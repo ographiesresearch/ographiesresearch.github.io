@@ -5,12 +5,16 @@ import { type NavModel, type ConfigModel } from '@ts/Models'
 
 interface Props {
   navItems: NavModel[];
+  parent: {
+    name: string;
+    url: string;
+  }
 }
 
 import dataRaw from "@src/config.json";
 const data:ConfigModel= dataRaw;
 
-const { navItems } = Astro.props;
+const { navItems, parent } = Astro.props;
 ---
 
 <footer class="footer has-background-success">
@@ -18,8 +22,11 @@ const { navItems } = Astro.props;
   <div class="columns">
     <div class="column is-one-third">
       <div class="block">
-        <p class="title is-6 has-text-danger">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
-        <p class="subtitle is-6 has-text-danger">{data.subtitle}</p>
+        <p class="has-text-danger has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
+        <p class="has-text-danger">{data.subtitle}</p>     
+        {parent && 
+          <p class="has-text-danger"><a href={parent.url}>{parent.name}</a></p>
+        }   
       </div>
       <div class="block">
           {

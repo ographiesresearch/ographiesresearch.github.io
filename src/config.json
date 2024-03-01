@@ -1,5 +1,9 @@
 {
     "name": "Spatial Analysis & Action Research Group",
+    "parent": {
+        "name": "MIT Department of Urban Studies and Planning",
+        "url": "https://dusp.mit.edu/"
+    },
     "corp_form": null,
     "subtitle": "Data science for spatial justice.",
     "description": "The Spatial Analysis and Action Research Group, housed in MIT's [Department of Urban Studies and Planning](https://dusp.mit.edu/), uses spatial data science and mapping tools to support place-based movements for social justice in New England. Our current research projects focus primarily on consolidation in the rental market and housing insecurity (including evictions) in Massachusetts. Methodologically, we think of ourselves as 'mapping up': tying the harms of oppression to the institutions and institional arrangements that maintain them. We are also interested in developing new (and rethinking old) methods for interactive and static cartography.",

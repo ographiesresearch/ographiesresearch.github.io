@@ -45,7 +45,7 @@ const data:ConfigModel= dataRaw;
 				<slot/>
 			</div>
 		</section>
-		<Footer {navItems}/>
+		<Footer navItems = {navItems}, parent = {data.parent}/>
 		<Globe
 		transition:persist
 		sec={data.map.sec},

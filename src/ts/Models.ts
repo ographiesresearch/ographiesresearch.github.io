@@ -16,6 +16,10 @@ export interface PersonModel {
 
 export interface OrgModel {
     name: string;
+    parent: {
+        name?: string;
+        url?: string;
+    };
     subtitle?: string;
     corp_form?: string;
     email?: string;
