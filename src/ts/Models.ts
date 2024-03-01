@@ -18,7 +18,7 @@ export interface PersonModel {
 
 export interface OrgModel {
     name: string;
-    parent: NameURLModel;
+    parent?: NameURLModel;
     subtitle?: string;
     corp_form?: string;
     email?: string;
