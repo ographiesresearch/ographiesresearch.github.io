@@ -75,7 +75,10 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
         }
 
         removeMB(map) {
-            let ctrl = document.querySelector('.mapboxgl-ctrl')
+            interface SelectedElement extends Element{
+                style: CSSStyleDeclaration;
+            }
+            let ctrl:SelectedElement = document.querySelector('.mapboxgl-ctrl')
             ctrl.style["display"] = "none";
         }
 
