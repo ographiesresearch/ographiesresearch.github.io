@@ -50,3 +50,9 @@ a.button {
 .box-shadow-white {
     box-shadow: $shadow-offset $shadow-offset $success;
 }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
