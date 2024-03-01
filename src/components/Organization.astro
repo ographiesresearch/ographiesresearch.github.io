@@ -4,26 +4,10 @@ import AboutCard from '@components/AboutCard.astro'
 import markdownit from 'markdown-it'
 const md = markdownit()
 
+import { type OrgModel } from '@ts/Models'
+
 interface Props {
-  org: {
-    name: string;
-    subtitle?: string;
-    email?: string;
-    phone?: string;
-    bookingurl?: string;
-    description?: string;
-    office?: {
-      address?: string;
-      address2?: string;
-      city?: string;
-      state?: string;
-      postal?: string;
-    };
-    socials?: {
-      url?: string;
-      name?: string;
-    }[];
-  };
+  org: OrgModel;
   columns: boolean;
 }
 

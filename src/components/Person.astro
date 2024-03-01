@@ -5,23 +5,12 @@ import ImageBox from '@components/ImageBox.astro'
 
 import markdownit from 'markdown-it';
 
+import { type PersonModel } from '@src/ts/Models'
+
 const md = markdownit();
 
 interface Props {
-  person: {
-    name: string;
-    photo: string;
-    creds?: string[];
-    pronouns?: string;
-    roles?: string[];
-    email: string;
-    bio: string;
-    skills?: string[];
-    socials?: {
-      url?: string;
-      name?: string;
-    }[];
-  };
+  person: PersonModel;
   columns?: boolean;
 }
 
@@ -55,4 +44,4 @@ const { person, columns = false} = Astro.props;
         ))
       }
   </div>
-</AboutCard>
+</AboutCard>@src/ts/PersonModel@src/ts/Models

@@ -1,8 +1,7 @@
 ---
-interface Props {
-  src: string;
-  alt: string;
-}
+import {type ImageModel } from '@ts/Models'
+
+interface Props extends ImageModel {};
 
 const {src, alt} = Astro.props;
 

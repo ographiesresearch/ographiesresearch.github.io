@@ -1,12 +1,7 @@
 ---
-
-import { slide } from 'astro:transitions';
-
+import { type NavModel } from '@ts/Models'
 interface Props {
-  navItems: {
-    path: string;
-    title: string;
-  }[];
+  navItems: NavModel[];
 }
 
 const {navItems} = Astro.props;

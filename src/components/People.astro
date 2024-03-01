@@ -1,21 +1,10 @@
 ---
 import Person from '@components/Person.astro';
 
+import { type PersonModel } from '@ts/Models'
+
 interface Props {
-  people: {
-    name: string;
-    photo: string;
-    creds?: string[];
-    pronouns?: string;
-    roles?: string[];
-    email: string;
-    bio: string;
-    skills?: string[];
-    socials?: {
-      url?: string;
-      name?: string;
-    }[];
-  }[];
+  people: PersonModel[];
   columns?: boolean;
 }
 

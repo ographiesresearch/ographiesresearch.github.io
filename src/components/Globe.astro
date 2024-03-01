@@ -1,19 +1,10 @@
 ---
 import 'mapbox-gl/dist/mapbox-gl.css';
-interface Props {
-  lng: number;
-  lat: number;
-  zoom: number;
-  mapstyle: string;
-  bearing: number;
-  pitch?: number;
-  color?: string;
-  accesstoken: string;
-  linework?: boolean;
-  linewidth?: number;
-  interactive?: boolean;
-  sec?: number;
-}
+
+import { type GlobeModel } from '@ts/Models'
+
+interface Props extends GlobeModel {}
+
 const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#ffffff", linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
 
 
@@ -37,9 +28,8 @@ const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#fff
 />
 
 <script>
+    import { type MapBoxLayerModel } from '@ts/Models'
     import mapboxgl from "mapbox-gl"
-    import s from 'src/sass/_variables.module.scss';
-    // console.log(styles);
     class MapboxMap extends HTMLElement {
         constructor() {
             super()
@@ -69,7 +59,7 @@ const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#fff
 
         lineWork(map) {
             const layers = map.getStyle().layers;
-            Object.entries(layers).forEach((s) => {
+            Object.entries(layers).forEach((s:MapBoxLayerModel) => {
                 if (s[1].type == "line") {
                         map.setPaintProperty(s[1].id, 'line-color', this.dataset.color);
                         map.setPaintProperty(s[1].id, 'line-width', Number(this.dataset.linewidth));
