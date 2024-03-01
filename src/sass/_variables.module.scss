@@ -1,11 +1,11 @@
 // Danger/success are figure/ground
-$danger: #460080;
+$danger: #BB0000;
 $success: #ffffff;
 $link: $danger;
 // Info is highlight 
 $info: #460080;
 $dark: rgba(255, 255, 255, 0);
-$shadow-offset: 2px;
+$shadow-offset: 3px;
 
 :export {
     danger: $danger;
