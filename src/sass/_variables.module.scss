@@ -1,6 +1,9 @@
+// Danger/success are figure/ground
 $danger: #460080;
-$success: #460080;
-$link: rgb(255, 255, 255);
+$success: #ffffff;
+$link: $danger;
+// Info is highlight 
+$info: #460080;
 $dark: rgba(255, 255, 255, 0);
 $shadow-offset: 2px;
 
@@ -8,6 +11,7 @@ $shadow-offset: 2px;
     danger: $danger;
     success: $success;
     link: $link;
+    info: $info;
     dark: $dark;
     shadow-offset: $shadow-offset;
 }

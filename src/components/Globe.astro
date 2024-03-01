@@ -32,6 +32,17 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
 <script>
     import { type MapBoxLayerModel } from '@ts/Models'
     import mapboxgl from "mapbox-gl"
+    import * as stylesRaw from 'src/sass/_variables.module.scss';
+    interface Style {
+        success: string;
+        danger: string;
+        link: string;
+        info: string;
+        dark: string;
+        "shadow-offset": string;
+    }
+    const styles:Style = Object(stylesRaw);
+
     class MapboxMap extends HTMLElement {
         constructor() {
             super()
@@ -63,7 +74,7 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
             const layers = map.getStyle().layers;
             Object.entries(layers).forEach((s:MapBoxLayerModel) => {
                 if (s[1].type == "line") {
-                        map.setPaintProperty(s[1].id, 'line-color', this.dataset.color);
+                        map.setPaintProperty(s[1].id, 'line-color', styles.danger);
                         map.setPaintProperty(s[1].id, 'line-width', Number(this.dataset.linewidth));
                 }
                 if (s[1].type == "fill") {
@@ -76,7 +87,7 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
                             "source-layer": s[1]['source-layer'],
                             type: "line"
                         })
-                        map.setPaintProperty(id, 'line-color', this.dataset.color);
+                        map.setPaintProperty(id, 'line-color', styles.danger);
                         map.setPaintProperty(id, 'line-width', Number(this.dataset.linewidth));
                     }
                 }

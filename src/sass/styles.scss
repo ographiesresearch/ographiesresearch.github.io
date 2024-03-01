@@ -39,8 +39,8 @@ a.button {
     text-shadow: $shadow-offset $shadow-offset $danger;
 }
 
-.text-shadow-white {
-    text-shadow: $shadow-offset $shadow-offset white;
+.text-shadow-success {
+    text-shadow: $shadow-offset $shadow-offset $success;
 }
 
 .box-shadow-danger {
@@ -48,5 +48,5 @@ a.button {
 }
 
 .box-shadow-white {
-    box-shadow: $shadow-offset $shadow-offset white;
+    box-shadow: $shadow-offset $shadow-offset $success;
 }
