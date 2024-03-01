@@ -59,6 +59,10 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
 
             map.setStyle(this.dataset.style);
 
+            map.on('load', () => {
+                this.removeMB(map);
+            })
+
             if (Boolean(this.dataset.linework)) {
                 map.on('style.load', () => {
                     this.lineWork(map);
@@ -68,6 +72,11 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
                 this.spinGlobe(map);
             });
             this.spinGlobe(map);
+        }
+
+        removeMB(map) {
+            let ctrl = document.querySelector('.mapboxgl-ctrl')
+            ctrl.style["display"] = "none";
         }
 
         lineWork(map) {
