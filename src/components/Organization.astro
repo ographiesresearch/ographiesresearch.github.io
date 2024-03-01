@@ -17,6 +17,9 @@ const { org, columns = true} = Astro.props;
   <div class="block">
     <p class="title is-4 has-text-danger">{org.name}</p>
     <p class="subtitle is-4 has-text-danger">{org.subtitle}</p>
+    {org.parent && 
+      <p class="has-text-danger"><a href={org.parent.url}>{org.parent.name}</a></p>
+    }   
   </div>
   <div class="block">
     <p class="has-text-danger" set:html={md.renderInline(org.description)}></p>

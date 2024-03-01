@@ -1,3 +1,8 @@
+export interface NameURLModel {
+    name: string;
+    url: string;
+}
+
 export interface PersonModel {
     name: string;
     photo: string;
@@ -8,18 +13,12 @@ export interface PersonModel {
     email: string;
     bio: string;
     skills?: string[];
-    socials?: {
-        url?: string;
-        name?: string;
-    }[];
+    socials?: NameURLModel[];
 }
 
 export interface OrgModel {
     name: string;
-    parent: {
-        name?: string;
-        url?: string;
-    };
+    parent: NameURLModel;
     subtitle?: string;
     corp_form?: string;
     email?: string;
@@ -33,10 +32,7 @@ export interface OrgModel {
         state?: string;
         postal?: string;
     };
-    socials?: {
-        url?: string;
-        name?: string;
-    }[];
+    socials?: NameURLModel[];
 }
 
 export interface NavModel {

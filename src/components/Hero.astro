@@ -1,11 +1,9 @@
 ---
+import {type NameURLModel } from '@ts/Models';
 interface Props {
   title: string;
   subtitle: string;
-  parent: {
-    name: string;
-    url: string;
-  }
+  parent?: NameURLModel;
 }
 
 const { title, subtitle, parent } = Astro.props;
