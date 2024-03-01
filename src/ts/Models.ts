@@ -74,3 +74,13 @@ export interface ConfigModel extends OrgModel {
     people: PersonModel[],
     map: GlobeModel
 }
+
+
+export interface StylesModel {
+    success: string;
+    danger: string;
+    link: string;
+    info: string;
+    dark: string;
+    "shadow-offset": string;
+}

@@ -33,15 +33,8 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
     import { type MapBoxLayerModel } from '@ts/Models'
     import mapboxgl from "mapbox-gl"
     import * as stylesRaw from 'src/sass/_variables.module.scss';
-    interface Style {
-        success: string;
-        danger: string;
-        link: string;
-        info: string;
-        dark: string;
-        "shadow-offset": string;
-    }
-    const styles:Style = Object(stylesRaw);
+    import { type StylesModel } from '@ts/Models';
+    const styles:StylesModel = Object(stylesRaw);
 
     class MapboxMap extends HTMLElement {
         constructor() {
