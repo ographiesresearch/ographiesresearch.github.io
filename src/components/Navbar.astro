@@ -19,7 +19,7 @@ const {navItems} = Astro.props;
     <div class="navbar-start is-grouped">
         {
             navItems.map((item) => (
-                <a class="button navbar-item is-fullwidth is-medium is-success m-2 box-shadow-danger" href={item.path}>{item.title}</a>
+                <a class="button navbar-item is-fullwidth is-medium is-success m-2 box-shadow-danger has-text-danger" href={item.path}>{item.title}</a>
             ))
         }
     </div>

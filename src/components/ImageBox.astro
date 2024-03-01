@@ -12,7 +12,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 ---
 
 <figure class="image tile-image">
-    <Image src={images[photopath]()} alt={alt} />
+    <div class="has-background-danger">
+        <Image src={images[photopath]()} alt={alt} />
+    </div>
 </figure>
 
 <style type="scss">

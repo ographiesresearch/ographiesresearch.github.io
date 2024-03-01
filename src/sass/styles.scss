@@ -15,13 +15,13 @@ body {
   }
 
 @include tablet {
-    .tile-image > img {
+    .tile-image {
         padding-right: 1em;
     }
 }
 
 @include mobile {
-    .tile-image > img {
+    .tile-image {
         padding-bottom: 1em;
     }
 }
