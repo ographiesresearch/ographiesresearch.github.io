@@ -3,6 +3,7 @@ export interface PersonModel {
     photo: string;
     creds?: string[];
     pronouns?: string;
+    leadership: boolean;
     roles?: string[];
     email: string;
     bio: string;
@@ -16,6 +17,7 @@ export interface PersonModel {
 export interface OrgModel {
     name: string;
     subtitle?: string;
+    corp_form?: string;
     email?: string;
     phone?: string;
     bookingurl?: string;
@@ -42,11 +44,10 @@ export interface GlobeModel {
     lng: number;
     lat: number;
     zoom: number;
-    mapstyle: string;
+    style: string;
     bearing: number;
     pitch?: number;
     color?: string;
-    accesstoken: string;
     linework?: boolean;
     linewidth?: number;
     interactive?: boolean;
@@ -68,3 +69,8 @@ export type MapBoxLayerModel = [
         type: string
     }
 ]
+
+export interface ConfigModel extends OrgModel {
+    people: PersonModel[],
+    map: GlobeModel
+}

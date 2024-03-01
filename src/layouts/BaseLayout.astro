@@ -24,7 +24,9 @@ const navItems = [
 
 ]
 
-import data from "@src/config.json";
+import { type ConfigModel } from '@ts/Models'
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
 
 ---
 <!DOCTYPE html>
@@ -50,7 +52,7 @@ import data from "@src/config.json";
 		lat={data.map.lat}, 
 		lng={data.map.lng}, 
 		zoom={data.map.zoom}, 
-		mapstyle={data.map.style}, 
+		style={data.map.style}, 
 		bearing={data.map.bearing}, 
 		pitch={data.map.pitch},
 		color={data.map.color},

@@ -4,7 +4,10 @@ import People from '@components/People.astro'
 import Organization from '@components/Organization.astro'
 import { ViewTransitions } from 'astro:transitions'
 
-import data from "@src/config.json";
+import { type ConfigModel } from '@ts/Models'
+
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
 
 let leadership = data.people.filter(function(person) {
       return person.leadership;

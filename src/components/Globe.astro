@@ -3,9 +3,11 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { type GlobeModel } from '@ts/Models'
 
-interface Props extends GlobeModel {}
+interface Props extends GlobeModel {
+    accesstoken: string;
+}
 
-const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#ffffff", linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
+const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff", linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
 
 
 ---
@@ -16,7 +18,7 @@ const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#fff
     data-lat={lat}
     data-lng={lng}
     data-zoom={zoom}
-    data-mapstyle={mapstyle}
+    data-style={style}
     data-bearing={bearing}
     data-pitch={pitch}
     data-accesstoken={accesstoken}
@@ -44,7 +46,7 @@ const { lng, lat, zoom, mapstyle, bearing, pitch = 0, accesstoken, color = "#fff
                 zoom: this.dataset.zoom
             })
 
-            map.setStyle(this.dataset.mapstyle);
+            map.setStyle(this.dataset.style);
 
             if (Boolean(this.dataset.linework)) {
                 map.on('style.load', () => {

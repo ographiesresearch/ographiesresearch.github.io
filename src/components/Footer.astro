@@ -1,13 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import { type NavModel } from '@ts/Models'
+import { type NavModel, type ConfigModel } from '@ts/Models'
 
 interface Props {
   navItems: NavModel[];
 }
 
-import data from "@src/config.json";
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
 
 const { navItems } = Astro.props;
 ---
