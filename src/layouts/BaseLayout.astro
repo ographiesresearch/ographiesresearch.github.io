@@ -48,18 +48,19 @@ const data:ConfigModel= dataRaw;
 		<Footer navItems = {navItems}, parent = {data.parent}/>
 		<Globe
 		transition:persist
-		sec={data.map.sec},
-		lat={data.map.lat}, 
-		lng={data.map.lng}, 
-		zoom={data.map.zoom}, 
-		style={data.map.style}, 
-		bearing={data.map.bearing}, 
-		pitch={data.map.pitch},
-		color={data.map.color},
-		linework={data.map.linework},
-		linewidth={data.map.linewidth},
-		interactive={data.map.interactive},
+		sec={data.map.sec}
+		lat={data.map.lat} 
+		lng={data.map.lng}
+		zoom={data.map.zoom}
+		style={data.map.style}
+		bearing={data.map.bearing}
+		pitch={data.map.pitch}
+		color={data.map.color}
+		linework={data.map.linework}
+		light={data.map.light}
+		linewidth={data.map.linewidth}
+		interactive={data.map.interactive}
 		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
-		<Background/>
+		<Background light={data.map.light}/>
 	</body>
 </html>

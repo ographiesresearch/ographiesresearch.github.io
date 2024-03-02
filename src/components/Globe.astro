@@ -7,8 +7,10 @@ interface Props extends GlobeModel {
     accesstoken: string;
 }
 
-const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff", linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
+const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, light = true, linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
 
+let figureColor = light ? 'danger' : 'success';
+let blendMode = light ? 'darken' : 'screen';
 
 ---
 
@@ -22,7 +24,7 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
     data-bearing={bearing}
     data-pitch={pitch}
     data-accesstoken={accesstoken}
-    data-color={color}
+    data-figurecolor={figureColor}
     data-linewidth={linewidth}
     data-linework={Number(linework)}
     data-interactive={Number(interactive)}
@@ -79,7 +81,7 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
             const layers = map.getStyle().layers;
             Object.entries(layers).forEach((s:MapBoxLayerModel) => {
                 if (s[1].type == "line") {
-                        map.setPaintProperty(s[1].id, 'line-color', styles.danger);
+                        map.setPaintProperty(s[1].id, 'line-color', styles[this.dataset.figurecolor]);
                         map.setPaintProperty(s[1].id, 'line-width', Number(this.dataset.linewidth));
                 }
                 if (s[1].type == "fill") {
@@ -92,7 +94,7 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
                             "source-layer": s[1]['source-layer'],
                             type: "line"
                         })
-                        map.setPaintProperty(id, 'line-color', styles.danger);
+                        map.setPaintProperty(id, 'line-color', styles[this.dataset.figurecolor]);
                         map.setPaintProperty(id, 'line-width', Number(this.dataset.linewidth));
                     }
                 }
@@ -111,9 +113,9 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, color = "#ffffff
     customElements.define("mapbox-map", MapboxMap);
 </script>
 
-<style>
+<style define:vars={{ blendMode }}>
     #map {
-        mix-blend-mode: screen;
+        mix-blend-mode: var(--blendMode);
         height: 100%;
         width: 100vw;
         position: fixed;
