@@ -5,30 +5,7 @@ interface Props extends ImageModel {};
 
 const {src, alt} = Astro.props;
 
-import * as stylesRaw from 'src/sass/_variables.module.scss';
-import { type StylesModel } from '@ts/Models';
-const styles:StylesModel = Object(stylesRaw);
-
-function hexToRGB(hex) {
-    let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-        return r + r + g + g + b + b;
-    });
-    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? [parseInt(result[1], 16),
-        parseInt(result[2], 16),
-        parseInt(result[3], 16)
-    ] : null;
-}
-
-function isLight(rgbColor) {
-    const [r,g,b] = rgbColor;
-    let hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b))
-    return hsp > 127.5 ? true : false;
-}
-const light = isLight(hexToRGB(styles.danger));
-
-const blendMode = light ? 'has-background-success' : 'has-background-danger';
+import { baseColor } from '@ts/helpers'
 
 let photopath = src && '/src/assets/'.concat(src);
 import type { ImageMetadata } from 'astro';
@@ -37,7 +14,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 ---
 
 <figure class="image tile-image">
-    <div class={blendMode}>
+    <div class={baseColor}>
         <Image src={images[photopath]()} alt={alt} />
     </div>
 </figure>
