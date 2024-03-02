@@ -1,26 +1,25 @@
 {
-    "name": "OGRAPHIES Research & Design",
-    "corp_form": "LLC",
-    "subtitle": "When mapping matters.",
-    "description": "OGRAPHIES Research & Design is a mission-driven GIS, mapping, and spatial data science consultancy that designs tools and analyzes problems for clients who are working towards a more just world. OGRAPHIES is not a traditional GIS consultancy. OGRAPHIES builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
-    "bookingurl": "https://calendar.app.google/zLn7fQT7czQ5cbya9",
+    "name": "Spatial Analysis & Action Research Group",
+    "parent": {
+        "name": "MIT Department of Urban Studies and Planning",
+        "url": "https://dusp.mit.edu/"
+    },
+    "corp_form": null,
+    "subtitle": "Data science for spatial justice.",
+    "description": "The Spatial Analysis and Action Research Group, housed in MIT's [Department of Urban Studies and Planning](https://dusp.mit.edu/), uses spatial data science and mapping tools to support place-based movements for social justice in New England. Our current research projects focus primarily on consolidation in the rental market and housing insecurity (including evictions) in Massachusetts. Methodologically, we think of ourselves as 'mapping up': tying the harms of oppression to the institutions and institional arrangements that maintain them. We are also interested in developing new (and rethinking old) methods for interactive and static cartography.",
     "office": {
-        "address": "PO Box 400123",
-        "address2": null,
+        "address": "77 Massachusetts Ave",
+        "address2": "Building 9-545",
         "city": "Cambridge",
         "state": "MA",
-        "postal": "02140"
+        "postal": "02139"
     },
-    "email": "info@ographiesresearch.com",
-    "phone": "(508) 205-9583",
+    "email": null,
+    "phone": null,
     "socials": [
         {
             "name": "Github",
-            "url": "https://github.com/ographiesresearch"
-        },
-        {
-            "name": "Linkedin",
-            "url": "https://www.linkedin.com/company/ographiesresearch"
+            "url": "https://github.com/mit-spatial-action"
         }
     ],
     "people": [
@@ -30,8 +29,8 @@
             "leadership": true,
             "creds": ["PhD"],
             "pronouns": "they/them",
-            "roles": ["Founder", "Principal"],
-            "email": "eric@ographiesresearch.com",
+            "roles": ["Director"],
+            "email": "ehuntley@mit.edu",
             "socials": [
                 {
                     "name": "Github",
@@ -42,21 +41,54 @@
                     "url": "https://www.linkedin.com/in/ericrobskyhuntley"
                 }
             ],
-            "skills": ["spatial analysis", "GIS"],
-            "bio": "Eric Robsky Huntley, PhD is the founder and principal of OGRAPHIES Research & Design. They are a broadly trained geographer and GIScientist with expertise in the application of spatial data science, GIS, and cartography to problems of urban planning and policy. They currently serve on the faculty of [MIT's Department of Urban Studies and Planning](https://dusp.mit.edu/people/eric-robsky-huntley) where they direct the Spatial Analysis and Action Research Group, and have also held academic appointments at the Harvard Graduate School of Design and the Columbia School of Architecture, Planning, and Preservation."
+            "bio": "Eric Robsky Huntley, PhD is a [Lecturer in Urban Science and Planning](https://dusp.mit.edu/people/eric-robsky-huntley) in [MIT's Department of Urban Studies and Planning (DUSP)](https://dusp.mit.edu/) and the director of the Spatial Analysis & Action Research Group.  They are a GIScientist, geographer, and urban planner whose research practice focuses on what mapping and spatial data science can do for movements for social justice. Alongside their primary appointment at DUSP, they have also held academic appointments at the Harvard Graduate School of Design and the Columbia Graduate School of Architecture, Planning, and Preservation. They are also Founder and Principal of [OGRAPHIES Research and Design](http://ographiesresearch.com/), a mission-driven spatial data science consultancy. They hold a PhD in geography from the University of Kentucky's Department of Geography and a Master of Urban and Regional Planning from the University of Michigan's Taubman College of Architecture and Urban Planning."
+        },
+        {
+            "name": "Asya Aizman",
+            "photo": "asya.jpg",
+            "leadership": false,
+            "pronouns": "she/her",
+            "roles": ["Research Assistant", "MCP Candidate"],
+            "email": "aizman@mit.edu",
+            "socials": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/anastasia"
+                }
+            ],
+            "bio": "Asya Aizman is a research assistant in the Spatial Analysis & Action Research Group and an MCP candidate in the [Department of Urban Studies and Planning at MIT](https://dusp.mit.edu/). Asya works on housing, open access, and people power, with particular interest in forms of class solidarity between property owners. Before arriving at DUSP, she was a creative technologist & visiting researcher at [MIT's Digital Humanities Lab](https://digitalhumanities.mit.edu/) and a creative technologist & designer at the [Harvard Law Library Innovation Lab](https://lil.law.harvard.edu/). She holds a Bachelor of Fine Arts from the [Parsons School of Design](https://www.newschool.edu/parsons/) and a Bachelor of Arts from [The New School](https://www.newschool.edu/)."
+        },
+        {
+            "name": "Milan Chuttani",
+            "photo": "milan.jpg",
+            "leadership": false,
+            "pronouns": "he/him",
+            "roles": ["Research Assistant", "MCP Candidate"],
+            "email": "milanc@mit.edu",
+            "socials": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/mchuttani18"
+                },
+                {
+                    "name": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/mchuttani"
+                }
+            ],
+            "bio": "Milan Chuttani is a research assistant in the Spatial Analysis & Action Research Group and an MCP candidate in the [Department of Urban Studies and Planning at MIT](https://dusp.mit.edu/). Milan's interests are in transforming spatial, qualitative, and quantitative data into compelling narratives that promote health equity. Milan also serves as a data analyst at the [Vital Village Networks](https://www.vitalvillage.org/). Prior to joining DUSP, Milan was an ORISE Fellow at the CDC's Division of Global Migration and Quarantine, developing web applications and GIS tools to support the COVID-19 pandemic response and public health initiatives for globally mobile populations. Milan holds with a Bachelor of Arts in Government from [Dartmouth College](https://home.dartmouth.edu/)."
         }
     ],
     "map": {
         "lat": 42.389118,
         "lng": -70.957153,
-        "zoom": 11,
-        "style": "mapbox://styles/ericrobskyhuntley/clt21v30001va01p44n0jd47d",
-        "bearing": 90,
-        "pitch": 0,
-        "linework": false,
+        "zoom": 12,
+        "style": "mapbox://styles/mapbox/streets-v11",
+        "bearing": -90,
+        "pitch": 30,
+        "light": true,
+        "linework": true,
         "linewidth": 0.25,
         "interactive": true,
-        "sec": 150000,
-        "color": "#ffffff"
+        "sec": 150000
     }
 }
