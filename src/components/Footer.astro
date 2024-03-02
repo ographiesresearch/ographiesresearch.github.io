@@ -1,30 +1,42 @@
 ---
 import { Icon } from 'astro-icon/components'
 
+import { type NavModel, type ConfigModel, type NameURLModel } from '@ts/Models'
+
 interface Props {
-  navItems: {
-    path: string;
-    title: string;
-  }[];
+  navItems: NavModel[];
+  parent?: NameURLModel;
 }
 
-import data from "@src/config.json";
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
 
-const { navItems } = Astro.props;
+const iconSize = 20;
+
+const { navItems, parent } = Astro.props;
 ---
 
-<footer class="footer has-background-danger">
+<footer class="footer has-background-success">
   <section class="section">
   <div class="columns">
     <div class="column is-one-third">
       <div class="block">
-        <p class="title is-6 has-text-white">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
-        <p class="subtitle is-6 has-text-white">{data.subtitle}</p>
+        <p class="has-text-danger has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
+        <p class="has-text-danger">{data.subtitle}</p>     
+        {parent && 
+          <p class="has-text-danger"><a href={parent.url}>{parent.name}</a></p>
+        }   
       </div>
       <div class="block">
           {
             data.socials.map((platform) => (
-                <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+                
+          <div class="tag is-medium is-success has-text-danger">
+            <span class="icon mr-2">
+              <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
+            </span>
+            <a href={platform.url} class="has-text-danger">{platform.url.split("/").pop()}</a>
+          </div>
             ))
           }
       </div>
@@ -33,18 +45,18 @@ const { navItems } = Astro.props;
       <ul>
       {
             navItems.map((item) => (
-                <li><a href={item.path} class="has-text-white">{item.title}</a></li>
+                <li><a href={item.path} class="has-text-danger">{item.title}</a></li>
             ))
       }
       </ul>
     </div>
     <div class="column is-one-third">
       <ul>
-        <li>{data.email && <a href={"mailto:".concat(data.email)} class="has-text-white">{data.email}</a>}</li>
-        <li>{data.phone && <a href={"tel:".concat(data.phone)} class="has-text-white">{data.phone}</a>}</li>
-        <li class="has-text-white">{data.office.address}</li>
-        <li class="has-text-white">{data.office.address2}</li>
-        <li class="has-text-white">{data.office.city}, {data.office.state} {data.office.postal}</li>
+        <li>{data.email && <a href={"mailto:".concat(data.email)} class="has-text-danger">{data.email}</a>}</li>
+        <li>{data.phone && <a href={"tel:".concat(data.phone)} class="has-text-danger">{data.phone}</a>}</li>
+        <li class="has-text-danger">{data.office.address}</li>
+        <li class="has-text-danger">{data.office.address2}</li>
+        <li class="has-text-danger">{data.office.city}, {data.office.state} {data.office.postal}</li>
       </ul>
     </div>
   </div>

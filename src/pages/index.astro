@@ -1,10 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero.astro';
-import data from "@src/config.json";
+
+import { type ConfigModel } from '@ts/Models'
+
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
+
 import { ViewTransitions } from 'astro:transitions';
 ---
 <BaseLayout name={data.name}>
-	<Hero title={data.name}, subtitle={data.subtitle}/>
+	<Hero title={data.name} subtitle={data.subtitle} parent={data.parent}/>
 </BaseLayout>
 <ViewTransitions/>

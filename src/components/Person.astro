@@ -5,27 +5,18 @@ import ImageBox from '@components/ImageBox.astro'
 
 import markdownit from 'markdown-it';
 
+import { type PersonModel } from '@ts/Models'
+
 const md = markdownit();
 
 interface Props {
-  person: {
-    name: string;
-    photo: string;
-    creds?: string[];
-    pronouns?: string;
-    roles?: string[];
-    email: string;
-    bio: string;
-    skills: string[];
-    socials?: {
-      url?: string;
-      name?: string;
-    }[];
-  };
+  person: PersonModel;
   columns?: boolean;
 }
 
 const { person, columns = false} = Astro.props;
+
+const iconSize = 20;
 
 ---
 <AboutCard columns={columns}>
@@ -33,26 +24,46 @@ const { person, columns = false} = Astro.props;
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         {"photo" in person && 
-          <div class="tile is-child is-4">
-            <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
-          </div>}
+        <div class="tile is-child is-4">
+          <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
+        </div>
+        }
         <div class="tile is-child is-8">
-          <p class="title is-4 has-text-white">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
-          <p class="subtitle is-4 has-text-white">{person.roles && person.roles.join(", ")}</p>
-          <p class="has-text-white">{person.pronouns}</p>
-          <p>{person.email && <a href={"mailto:".concat(person.email)} class="has-text-white">{person.email}</a>}</p>
+          <p class="title is-4 has-text-danger">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
+          <p class="subtitle is-4 has-text-danger">{person.roles && person.roles.join(", ")}</p>
+          <div class="tags are-medium">
+            <p class="tag is-success has-text-danger">
+              <span class="mr-2 icon">
+                <Icon name="mdi:person" size={iconSize} />
+              </span>
+              {person.pronouns}
+            </p>
+            <p class="tag is-success has-text-danger">
+              <span class="mr-2 icon">
+                <Icon name="mdi:email" size={iconSize} />
+              </span>
+              {person.email && <a class="has-text-danger" href={"mailto:".concat(person.email)}>{person.email}</a>}
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="block">
-    <p class="has-text-white" set:html={md.renderInline(person.bio)}></p>
+    <p class="has-text-danger" set:html={md.renderInline(person.bio)}></p>
   </div>
   <div class="block">
+    <div class="tags">
       {
         person.socials.map((platform) => (
-          <span><a href={platform.url} class="has-text-white"><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={28} /></a></span>
+          <div class="tag is-medium is-success has-text-danger">
+            <span class="icon mr-2">
+              <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
+            </span>
+            <a href={platform.url} class="has-text-danger">{platform.url.split("/").pop()}</a>
+          </div>
         ))
       }
+    </div>
   </div>
 </AboutCard>

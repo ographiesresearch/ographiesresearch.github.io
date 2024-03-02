@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import "_variables.scss";
+@import "_variables.module.scss";
 
 @import "node_modules/bulma/bulma.sass";
 
@@ -9,13 +9,13 @@
   }
 
 @include tablet {
-    .tile-image > img {
+    .tile-image {
         padding-right: 1em;
     }
 }
 
 @include mobile {
-    .tile-image > img {
+    .tile-image {
         padding-bottom: 1em;
     }
 }
@@ -33,8 +33,8 @@ a.button {
     text-shadow: $shadow-offset $shadow-offset $danger;
 }
 
-.text-shadow-white {
-    text-shadow: $shadow-offset $shadow-offset white;
+.text-shadow-success {
+    text-shadow: $shadow-offset $shadow-offset $success;
 }
 
 .box-shadow-danger {
@@ -42,5 +42,11 @@ a.button {
 }
 
 .box-shadow-white {
-    box-shadow: $shadow-offset $shadow-offset white;
+    box-shadow: $shadow-offset $shadow-offset $success;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

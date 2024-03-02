@@ -4,7 +4,10 @@ import People from '@components/People.astro'
 import Organization from '@components/Organization.astro'
 import { ViewTransitions } from 'astro:transitions'
 
-import data from "@src/config.json";
+import { type ConfigModel } from '@ts/Models'
+
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
 
 let leadership = data.people.filter(function(person) {
       return person.leadership;
@@ -25,10 +28,10 @@ let leadership = data.people.filter(function(person) {
   </section>
   {(people.length >0 ) &&
     <section class="section">
-      <h1 class="title has-text-white">Who We Are</h1>
-        <div class="columns is-multiline">
+        <h1 class="title has-text-white text-shadow-danger">Our Team</h1>
+      <div class="columns is-multiline">
         <People people={people} columns={true} />
-        </div>
+      </div>
     </section>
   }
 </BaseLayout>

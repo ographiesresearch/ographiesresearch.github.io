@@ -24,6 +24,10 @@ const navItems = [
 
 ]
 
+import { type ConfigModel } from '@ts/Models'
+import dataRaw from "@src/config.json";
+const data:ConfigModel= dataRaw;
+
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -41,16 +45,20 @@ const navItems = [
 				<slot/>
 			</div>
 		</section>
-		<Footer {navItems}/>
+		<Footer navItems = {navItems}, parent = {data.parent}/>
 		<Globe
 		transition:persist
-		sec={50000},
-		lat={42.389118}, 
-		lng={-71.097153}, 
-		zoom={11}, 
-		mapstyle={"mapbox://styles/ericrobskyhuntley/clt21v30001va01p44n0jd47d"}, 
-		bearing={90}, 
-		interactive={true},
+		sec={data.map.sec},
+		lat={data.map.lat}, 
+		lng={data.map.lng}, 
+		zoom={data.map.zoom}, 
+		style={data.map.style}, 
+		bearing={data.map.bearing}, 
+		pitch={data.map.pitch},
+		color={data.map.color},
+		linework={data.map.linework},
+		linewidth={data.map.linewidth},
+		interactive={data.map.interactive},
 		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
 		<Background/>
 	</body>

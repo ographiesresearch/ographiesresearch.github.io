@@ -1,30 +1,25 @@
 ---
-
-import { slide } from 'astro:transitions';
-
+import { type NavModel } from '@ts/Models'
 interface Props {
-  navItems: {
-    path: string;
-    title: string;
-  }[];
+  navItems: NavModel[];
 }
 
 const {navItems} = Astro.props;
 ---
 
 <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand has-background-dark has-text-white">
-    <a role="button" class="navbar-burger has-text-white has-background-danger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+  <div class="navbar-brand has-background-dark">
+    <a role="button" class="navbar-burger has-text-danger has-background-success box-shadow-danger" data-target="navMenu" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div id="navMenu" class="navbar-menu  has-background-dark">
+  <div id="navMenu" class="navbar-menu has-background-dark">
     <div class="navbar-start is-grouped">
         {
             navItems.map((item) => (
-                <a class="button navbar-item is-fullwidth is-medium is-danger m-2 box-shadow-white" href={item.path}>{item.title}</a>
+                <a class="button navbar-item is-fullwidth is-medium is-success m-2 box-shadow-danger has-text-danger" href={item.path}>{item.title}</a>
             ))
         }
     </div>
@@ -32,7 +27,6 @@ const {navItems} = Astro.props;
 </nav>
 
 <script>
-
   let burgerListener = () => {
     let $burger = document.querySelector('.navbar-burger')
         $burger.addEventListener('click', () => {
@@ -40,7 +34,12 @@ const {navItems} = Astro.props;
         })
   }
 
-
   document.addEventListener('DOMContentLoaded', burgerListener)
   document.addEventListener("astro:after-swap", burgerListener)
 </script>
+
+<style>
+  .navbar-burger > span {
+    height: 0.12em;
+  }
+</style>

@@ -1,17 +1,22 @@
 ---
+import {type NameURLModel } from '@ts/Models';
 interface Props {
   title: string;
   subtitle: string;
+  parent?: NameURLModel;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, parent } = Astro.props;
 ---
 
 <section class="hero is-fullheight">
     <div class="hero-body" style="z-index:1000">
-        <div class="" >
-            <h1 class="title has-text-white is-size-1 text-shadow-danger"> {title}</h1>
-            <p class="subtitle has-text-white is-size-1 text-shadow-danger">{subtitle}</p>
+        <div class="">
+            <h1 class="title has-text-danger is-size-1 text-shadow-success"> {title}</h1>
+            <p class="subtitle has-text-danger is-size-2 text-shadow-success">{subtitle}</p>
+            {parent &&
+                <p class="subtitle has-text-danger is-size-3 text-shadow-success"><a href={parent.url}>{parent.name}</a></p>
+            }
         </div>
     </div>
 </section>
