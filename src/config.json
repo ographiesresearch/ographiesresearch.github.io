@@ -1,8 +1,10 @@
 {
     "name": "OGRAPHIES Research & Design",
     "corp_form": "LLC",
+    "logo": "logo.jpg",
     "subtitle": "When mapping matters.",
-    "description": "[OGRAPHIES Research & Design](https://ographiesresearch.com/) is a mission-driven GIS, mapping, and spatial data science consultancy that designs tools and analyzes problems for clients who are working towards a more just world. OGRAPHIES is not a traditional GIS consultancy. OGRAPHIES builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
+    "url": "https://ographiesresearch.com",
+    "description": "[OGRAPHIES Research & Design](https://ographiesresearch.com) is a mission-driven GIS, mapping, and spatial data science consultancy based in Greater Boston that designs tools and analyzes problems for clients who are working towards a more just world. [OGRAPHIES](https://ographiesresearch.com) is not a traditional GIS consultancy. [OGRAPHIES](https://ographiesresearch.com) builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
     "bookingurl": "https://calendar.app.google/zLn7fQT7czQ5cbya9",
     "office": {
         "address": "PO Box 400123",
@@ -43,20 +45,81 @@
                 }
             ],
             "skills": ["spatial analysis", "GIS"],
-            "bio": "Eric Robsky Huntley, PhD is the founder and principal of [OGRAPHIES Research & Design](https://ographiesresearch.com/). They are a broadly trained geographer and GIScientist with expertise in the application of spatial data science, GIS, and cartography to problems of urban planning and policy. They currently serve on the faculty of [MIT's Department of Urban Studies and Planning](https://dusp.mit.edu/people/eric-robsky-huntley) where they direct the [Spatial Analysis and Action Research Group](https://mit-spatial-action.github.io/), and have also held academic appointments at [Harvard University's Graduate School of Design](https://www.gsd.harvard.edu/) and [Columbia University's School of Architecture, Planning, and Preservation](https://www.arch.columbia.edu/)."
+            "bio": "Eric Robsky Huntley, PhD is the founder and principal of [OGRAPHIES Research & Design](https://ographiesresearch.com). They are a spatial data scientist and geographer with expertise in the application of spatial data science, GIS, and cartography to problems of urban planning and policy. They currently serve on the faculty of [MIT's Department of Urban Studies and Planning](https://dusp.mit.edu/people/eric-robsky-huntley) where they direct the [Spatial Analysis and Action Research Group](https://mit-spatial-action.github.io/). They have also held academic appointments at the [Harvard Graduate School of Design](https://www.gsd.harvard.edu/) and the [Columbia School of Architecture, Planning, and Preservation](https://www.arch.columbia.edu/)."
+        }
+    ],
+    "clients": [
+        {
+            "name": "Utile Architecture & Design",
+            "corp_form": "Inc",
+            "logo": "utile.svg",
+            "url": "https://www.utiledesign.com/",
+            "office": {
+                "city": "Boston",
+                "state": "MA"
+            }
+        },
+        {
+            "name": "Leventhal Map & Education Center at the Boston Public Library",
+            "logo": "lmec.png",
+            "url": "https://www.leventhalmap.org/",
+            "office": {
+                "city": "Boston",
+                "state": "MA"
+            }
+        },
+        {
+            "name": "Mobi Collaborative AI",
+            "corp_form": "Inc",
+            "logo": "mobi.svg",
+            "url": "https://www.takemobi.com/",
+            "office": {
+                "city": "Somerville",
+                "state": "MA"
+            }
+        },
+        {
+            "name": "Public Interest Law Project",
+            "logo": "pilp.svg",
+            "url": "https://www.pilpca.org/",
+            "office": {
+                "city": "Oakland",
+                "state": "CA"
+            }
+        },
+        {
+            "name": "Resonant Energy",
+            "corp_form": "LLC",
+            "logo": "resonant.png",
+            "url": "https://www.resonant.energy/",
+            "office": {
+                "city": "Boston",
+                "state": "MA"
+            }
+        },
+        {
+            "name": "Greater Boston Legal Services",
+            "corp_form": "Inc",
+            "logo": "gbls.gif",
+            "url": "https://www.gbls.org/",
+            "office": {
+                "city": "Boston",
+                "state": "MA"
+            }
         }
     ],
     "map": {
         "lat": 42.389118,
         "lng": -70.957153,
         "zoom": 11,
-        "style": "mapbox://styles/ericrobskyhuntley/clt21v30001va01p44n0jd47d",
-        "bearing": 90,
-        "pitch": 0,
+        "style": "mapbox://styles/mapbox/satellite-v9",
+        "bearing": -90,
+        "pitch": 30,
         "linework": false,
         "linewidth": 0.25,
         "interactive": true,
-        "sec": 150000,
+        "light": true,
+        "sec": 100000,
         "color": "#ffffff"
     }
 }

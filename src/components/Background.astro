@@ -1,8 +1,10 @@
 ---
-import { baseColor } from '@ts/helpers'
+const { light } = Astro.props;
+
+let groundColor = light ? 'has-background-success' : 'has-background-danger';
 ---
 
-<div class={baseColor}></div>
+<div class={groundColor}></div>
 
 <style>
     div {

@@ -34,13 +34,13 @@ const iconSize = 20;
           <div class="tags are-medium">
             <p class="tag is-success has-text-danger">
               <span class="mr-2 icon">
-                <Icon name="mdi:person" size={iconSize} />
+                <Icon name="mdi:person" title="Pronouns icon." size={iconSize} />
               </span>
               {person.pronouns}
             </p>
             <p class="tag is-success has-text-danger">
               <span class="mr-2 icon">
-                <Icon name="mdi:email" size={iconSize} />
+                <Icon name="mdi:email" title="Email icon." size={iconSize} />
               </span>
               {person.email && <a class="has-text-danger" href={"mailto:".concat(person.email)}>{person.email}</a>}
             </p>
@@ -58,7 +58,7 @@ const iconSize = 20;
         person.socials.map((platform) => (
           <div class="tag is-medium is-success has-text-danger">
             <span class="icon mr-2">
-              <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
+              <Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} />
             </span>
             <a href={platform.url} class="has-text-danger">{platform.url.split("/").pop()}</a>
           </div>

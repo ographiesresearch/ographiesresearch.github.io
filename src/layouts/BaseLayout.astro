@@ -3,6 +3,8 @@ import Header from '@components/Header.astro';
 import Globe from '@components/Globe.astro';
 import Footer from '@components/Footer.astro';
 import Background from '@components/Background.astro';
+import { SEO } from "astro-seo";
+import mime from 'mime';
 
 import '../sass/styles.scss';
 
@@ -26,17 +28,35 @@ const navItems = [
 
 import { type ConfigModel } from '@ts/Models'
 import dataRaw from "@src/config.json";
-const data:ConfigModel= dataRaw;
+const data:ConfigModel = dataRaw;
+
+const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
+
+const og = "logo" in data ? {
+	basic: {
+		title: name,
+		type: "website",
+		image: logoPath
+	},
+	image: {
+		type: mime.getType(logoPath.split('.').pop()),
+		alt: "Logo for ".concat(name)
+	}
+} : null;
 
 ---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<SEO
+			title={name},
+			description={data.description},
+			charset="utf-8",
+			openGraph={og}
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content={Astro.generator} />
-		<title>{name}</title>
 	</head>
 	<body>
 		<section class="section is-fullheight">
@@ -48,18 +68,19 @@ const data:ConfigModel= dataRaw;
 		<Footer navItems = {navItems}, parent = {data.parent}/>
 		<Globe
 		transition:persist
-		sec={data.map.sec},
-		lat={data.map.lat}, 
-		lng={data.map.lng}, 
-		zoom={data.map.zoom}, 
-		style={data.map.style}, 
-		bearing={data.map.bearing}, 
-		pitch={data.map.pitch},
-		color={data.map.color},
-		linework={data.map.linework},
-		linewidth={data.map.linewidth},
-		interactive={data.map.interactive},
+		sec={data.map.sec}
+		lat={data.map.lat} 
+		lng={data.map.lng}
+		zoom={data.map.zoom}
+		style={data.map.style}
+		bearing={data.map.bearing}
+		pitch={data.map.pitch}
+		color={data.map.color}
+		linework={data.map.linework}
+		light={data.map.light}
+		linewidth={data.map.linewidth}
+		interactive={data.map.interactive}
 		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
-		<Background/>
+		<Background light={data.map.light}/>
 	</body>
 </html>

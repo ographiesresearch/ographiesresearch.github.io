@@ -18,11 +18,13 @@ export interface PersonModel {
 
 export interface OrgModel {
     name: string;
+    logo?: string;
     parent?: NameURLModel;
     subtitle?: string;
     corp_form?: string;
     email?: string;
     phone?: string;
+    url?: string;
     bookingurl?: string;
     description?: string;
     office?: {
@@ -48,6 +50,7 @@ export interface GlobeModel {
     bearing: number;
     pitch?: number;
     color?: string;
+    light: boolean;
     linework?: boolean;
     linewidth?: number;
     interactive?: boolean;
@@ -72,6 +75,7 @@ export type MapBoxLayerModel = [
 
 export interface ConfigModel extends OrgModel {
     people: PersonModel[],
+    clients: OrgModel[],
     map: GlobeModel
 }
 
