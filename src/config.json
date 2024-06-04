@@ -88,6 +88,15 @@
             }
         },
         {
+            "name": "Public Planning, Research, and Implementation",
+            "corp_form": "Inc",
+            "logo": "ppri.png",
+            "office": {
+                "city": "Somerville",
+                "state": "MA"
+            }
+        },
+        {
             "name": "Resonant Energy",
             "corp_form": "LLC",
             "logo": "resonant.png",
