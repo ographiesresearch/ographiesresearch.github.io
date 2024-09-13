@@ -47,8 +47,9 @@
             "name": "Asya Aizman",
             "photo": "asya.jpg",
             "leadership": false,
+            "creds": ["MCP"],
             "pronouns": "she/her",
-            "roles": ["Research Assistant", "MCP Candidate"],
+            "roles": ["PhD Student"],
             "email": "aizman@mit.edu",
             "socials": [
                 {
@@ -56,7 +57,7 @@
                     "url": "https://github.com/anastasia"
                 }
             ],
-            "bio": "Asya Aizman is a research assistant in the Spatial Analysis & Action Research Group and an MCP candidate in the [Department of Urban Studies and Planning at MIT](https://dusp.mit.edu/). Asya works on housing, open access, and people power, with particular interest in forms of class solidarity between property owners. Before arriving at DUSP, she was a creative technologist & visiting researcher at [MIT's Digital Humanities Lab](https://digitalhumanities.mit.edu/) and a creative technologist & designer at the [Harvard Law Library Innovation Lab](https://lil.law.harvard.edu/). She holds a Bachelor of Fine Arts from the [Parsons School of Design](https://www.newschool.edu/parsons/) and a Bachelor of Arts from [The New School](https://www.newschool.edu/)."
+            "bio": "Asya Aizman is a PhD Student in the [Department of Urban Studies and Planning at MIT](https://dusp.mit.edu/). Asya works on housing, open access, and people power, with particular interest in forms of class solidarity between property owners. Before arriving at DUSP, she was a creative technologist & visiting researcher at [MIT's Digital Humanities Lab](https://digitalhumanities.mit.edu/) and a creative technologist & designer at the [Harvard Law Library Innovation Lab](https://lil.law.harvard.edu/). She holds a Master's in City Planning from [MIT DUSP](https://dusp.mit.edu/), Bachelor of Fine Arts from the [Parsons School of Design](https://www.newschool.edu/parsons/) and a Bachelor of Arts from [The New School](https://www.newschool.edu/)."
         },
         {
             "name": "Milan Chuttani",
@@ -76,6 +77,21 @@
                 }
             ],
             "bio": "Milan Chuttani is a research assistant in the Spatial Analysis & Action Research Group and an MCP candidate in the [Department of Urban Studies and Planning at MIT](https://dusp.mit.edu/). Milan's interests are in transforming spatial, qualitative, and quantitative data into compelling narratives that promote health equity. Milan also serves as a data analyst at the [Vital Village Networks](https://www.vitalvillage.org/). Prior to joining DUSP, Milan was an ORISE Fellow at the CDC's Division of Global Migration and Quarantine, developing web applications and GIS tools to support the COVID-19 pandemic response and public health initiatives for globally mobile populations. Milan holds with a Bachelor of Arts in Government from [Dartmouth College](https://home.dartmouth.edu/)."
+        },
+        {
+            "name": "Jiao Zhao",
+            "photo": "jiao.jpg",
+            "leadership": false,
+            "pronouns": "she/her",
+            "roles": ["Research Assistant", "MCP Candidate"],
+            "email": "jiaoz17@mit.edu",
+            "socials": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/Jiaoz17"
+                }
+            ],
+            "bio": "Her interests revolve around housing, urban inequalities, and using technology to drive social innovation. Prior to landing at DUSP, she worked as an archiurbanist, focusing on improving underutilized spaces to foster more vibrant public life and sustainable urban environments. She holds a Bachelor of Engineering in Architecture from [Tongji University](https://en.tongji.edu.cn/p/)."
         }
     ],
     "map": {
