@@ -2,31 +2,37 @@
 import { Icon } from 'astro-icon/components'
 import AboutCard from '@components/AboutCard.astro'
 import markdownit from 'markdown-it'
+import ImageBox from '@components/ImageBox.astro'
 const md = markdownit()
 
 import { type OrgModel } from '@ts/Models'
 
 interface Props {
   org: OrgModel;
+  logo: string;
   columns: boolean;
 }
 
 const iconSize = 20;
 
-const { org, columns = true} = Astro.props;
+const { org, logo, columns = true} = Astro.props;
 ---
 <AboutCard columns={columns}>
   <div class="block">
     <div class="columns is-vcentered">
     <div class="column is-one-quarter has-text-centered">
-      <img class="logo image is-inline-block" src='/src/assets/logo_medium.png' />
+      <ImageBox 
+          class:list={["image-shadow-success"]}
+          src={logo} 
+          alt={"Logo of ".concat(org.name)}
+            />
     </div>
     <div class="column">
-    <p class="title is-4 has-text-danger">{org.name}</p>
-    <p class="subtitle is-4 has-text-danger">{org.subtitle}</p>
-    {org.parent && 
-      <p class="has-text-danger"><a href={org.parent.url}>{org.parent.name}</a></p>
-    }   
+      <p class="title is-4 has-text-danger">{org.name}</p>
+      <p class="subtitle is-4 has-text-danger">{org.subtitle}</p>
+      {org.parent && 
+        <p class="has-text-danger"><a href={org.parent.url}>{org.parent.name}</a></p>
+      }   
     </div>
   </div>
   </div>

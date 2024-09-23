@@ -10,6 +10,6 @@ const data:ConfigModel= dataRaw;
 import { ViewTransitions } from 'astro:transitions';
 ---
 <BaseLayout name={data.name}>
-	<Hero title={data.name} subtitle={data.subtitle} parent={data.parent}/>
+	<Hero title={data.name} subtitle={data.subtitle} logo={dataRaw.logo} parent={data.parent}/>
 </BaseLayout>
 <ViewTransitions/>

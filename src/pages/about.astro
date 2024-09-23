@@ -23,7 +23,7 @@ let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.na
 <BaseLayout name={data.name}>
   <section class="section">
     <div class="columns">
-        <Organization org={data} columns={true}/>
+        <Organization org={data} columns={true}, logo={dataRaw.logo}/>
         <People people={leadership} columns={true}/>
       </div>
     </div>

@@ -3,17 +3,28 @@ import {type NameURLModel } from '@ts/Models';
 interface Props {
   title: string;
   subtitle: string;
+  logo: string;
   parent?: NameURLModel;
 }
 
-const { title, subtitle, parent } = Astro.props;
+const { title, subtitle, parent, logo } = Astro.props;
+
+let photopath = logo && '/src/assets/'.concat(logo);
+
+import { Image } from 'astro:assets';
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,svg}')
+
 ---
 
 <section class="hero is-fullheight">
     <div class="hero-body is-fullwidth" style="z-index:1000">
         <div class="columns is-fullwidth is-vcentered" style="width:100%">
-            <div class="column is-one-fifth has-text-centered">
-                <img class="image is-inline-block" width="250px" src='/src/assets/logo_medium.png' alt={"Logo of ".concat(title)} />
+            <div class="column is-one-fifth has-text-centered image-shadow-success">
+                <Image 
+                    class:list={["image-shadow-success"]}
+                    src={images[photopath]()} 
+                    alt={"Logo of ".concat(title)}
+                     />
             </div>
             <div class="column">
                 <h1 class="title has-text-danger is-size-1 text-shadow-success"> {title}</h1>

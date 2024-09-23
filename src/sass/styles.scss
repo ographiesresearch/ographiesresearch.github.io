@@ -29,6 +29,14 @@ a.button {
     text-decoration-line: none;
 }
 
+.image-shadow-danger {
+    filter: drop-shadow($shadow-offset $shadow-offset 0px $danger);
+}
+
+.image-shadow-success {
+    filter: drop-shadow($shadow-offset $shadow-offset 0px $success);
+}
+
 .text-shadow-danger {
     text-shadow: $shadow-offset $shadow-offset $danger;
 }
