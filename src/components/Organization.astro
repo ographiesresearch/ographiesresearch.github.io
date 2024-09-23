@@ -17,11 +17,18 @@ const { org, columns = true} = Astro.props;
 ---
 <AboutCard columns={columns}>
   <div class="block">
+    <div class="columns is-vcentered">
+    <div class="column is-one-quarter has-text-centered">
+      <img class="logo image is-inline-block" src='/src/assets/logo_medium.png' />
+    </div>
+    <div class="column">
     <p class="title is-4 has-text-danger">{org.name}</p>
     <p class="subtitle is-4 has-text-danger">{org.subtitle}</p>
     {org.parent && 
       <p class="has-text-danger"><a href={org.parent.url}>{org.parent.name}</a></p>
     }   
+    </div>
+  </div>
   </div>
   <div class="block">
     <p class="has-text-danger" set:html={md.renderInline(org.description)}></p>
