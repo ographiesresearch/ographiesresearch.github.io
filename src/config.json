@@ -19,10 +19,6 @@
         {
             "name": "Github",
             "url": "https://github.com/ographiesresearch"
-        },
-        {
-            "name": "Linkedin",
-            "url": "https://www.linkedin.com/company/ographiesresearch"
         }
     ],
     "people": [
@@ -38,10 +34,6 @@
                 {
                     "name": "Github",
                     "url": "https://github.com/ericrobskyhuntley"
-                },
-                {
-                    "name": "Linkedin",
-                    "url": "https://www.linkedin.com/in/ericrobskyhuntley"
                 }
             ],
             "skills": ["spatial analysis", "GIS"],
