@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
 import People from '@components/People.astro'
-import ImageBox from '@components/ImageBox.astro'
+import Client from '@components/Client.astro'
 import Organization from '@components/Organization.astro'
 
 import { type ConfigModel } from '@ts/Models'
@@ -20,60 +20,34 @@ let people = data.people.filter(function(person) {
 let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 ---
 <BaseLayout name={data.name}>
-  <section class="section">
-    <div class="columns">
+  <div id="about">
+    <div class="block">
+      <div class="columns">
         <Organization org={data} columns={true}, logo={dataRaw.logo}/>
         <People people={leadership} columns={true}/>
       </div>
     </div>
-  </section>
-  {(people.length >0 ) &&
-    <section class="section">
-        <h1 class="title text-shadowr">Our Team</h1>
-      <div class="columns is-multiline">
-        <People people={people} columns={true} />
-      </div>
-    </section>
-  }
-  {(data.clients.length > 0) && 
-    <section class="section">
-        <div class="title text-shadow">
+    {(data.clients.length > 0) && 
+    <div class="box box-shadow">
+        <div class="title">
           Clients
         </div>
-      <div class="columns is-multiline">
-      {
-        clients.map((client) => (
-          <div class="column is-one-quarter">
-            <div class="box box-shadow">
-              {"logo" in client && 
-                <div class="block client-logo">
-                  <a href={client.url} aria-label={"Go to website of ".concat(client.name)}><ImageBox src={client.logo} alt={"Logo of ".concat(client.name)} /></a>
-                </div>
-              }
-              <ul>
-                <li><a href={client.url}>{client.name}</a></li>
-                <li>{client.office.city}, {client.office.state}</li>
-              </ul>
-            </div>
-          </div>  
+        <div class="grid is-col-min-8">
+        {
+          clients.map((client) => (
+            <Client {client}/>
+            )
           )
-        )
-      }
+        }
+        </div>
       </div>
-    </section>
-  }
+    }
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
-  .client-logo :global(img) {
-    margin: auto;
-    filter: grayscale(100%) brightness(10000%);
-    max-height: 4em;
-    width: auto;
-    padding: 0.125em;
-  }
-
-  .client-logo :global(.tile-image) {
-    padding: 0em;
+  .box {
+    box-shadow: none;
   }
 </style>

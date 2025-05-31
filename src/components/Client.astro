@@ -1,0 +1,34 @@
+---
+import ImageBox from '@components/ImageBox.astro'
+
+const { client } = Astro.props;
+---
+<div class="cell box">
+    {"logo" in client && 
+    <div class="block client-logo">
+        <a href={client.url} aria-label={"Go to website of ".concat(client.name)}><ImageBox src={client.logo} alt={"Logo of ".concat(client.name)} /></a>
+    </div>
+    }
+    <div class="block">
+    <ul>
+        <li><a href={client.url}>{client.name}</a></li>
+        <li>{client.office.city}, {client.office.state}</li>
+    </ul>
+    </div>
+</div>  
+
+<style>
+  .client-logo :global(img) {
+    margin: auto;
+    filter: grayscale(100%) brightness(0%);
+    max-height: 4em;
+    width: auto;
+    padding: 0.125em;
+  }
+
+@media (prefers-color-scheme: dark) {
+    .client-logo :global(img) {
+        filter: grayscale(100%) brightness(10000%);
+    }
+}
+</style>

@@ -62,9 +62,9 @@ const og = "logo" in data ? {
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body>
-		<section class="section is-fullheight">
-			<Header {navItems}/>
+		<section id="body" class="section is-fullheight">
 			<div class="container" id="content">
+				<Header {navItems}/>
 				<slot/>
 			</div>
 		</section>

@@ -15,31 +15,9 @@ $shadow-offset: 3px;
     $radius: 0
 );
 
-@use "bulma/sass/utilities/mixins";
-
-@include mixins.tablet {
-    .tile-image {
-        padding-right: 1em;
-    }
-}
-
-@include mixins.mobile {
-    .tile-image {
-        padding-bottom: 1em;
-    }
-}
-
 a {
     text-decoration-line: underline;
     text-decoration-style: dashed;
-}
-
-a.button {
-    text-decoration-line: none;
-}
-
-.image-shadow {
-    filter: drop-shadow($shadow-offset $shadow-offset 0px $primary);
 }
 
 .text-shadow {
@@ -50,8 +28,8 @@ a.button {
     box-shadow: $shadow-offset $shadow-offset $primary;
 }
 
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (prefers-color-scheme: dark) {
+    #body {
+        background-color: $primary;
+    }
 }

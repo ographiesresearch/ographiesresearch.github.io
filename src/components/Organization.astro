@@ -22,14 +22,13 @@ const { org, logo, columns = true} = Astro.props;
     <div class="columns is-vcentered">
     <div class="column is-one-quarter has-text-centered">
       <ImageBox 
-          class:list={["image-shadow"]}
           src={logo} 
           alt={"Logo of ".concat(org.name)}
             />
     </div>
     <div class="column">
-      <p class="title is-4">{org.name}</p>
-      <p class="subtitle is-4">{org.subtitle}</p>
+      <p class="title">{org.name}</p>
+      <p class="subtitle">{org.subtitle}</p>
       {org.parent && 
         <p><a href={org.parent.url}>{org.parent.name}</a></p>
       }   
@@ -56,7 +55,7 @@ const { org, logo, columns = true} = Astro.props;
   <div class="block">
       {
         org.socials.map((platform) => (
-          <div class="tag is-mediumr">
+          <div class="tag is-medium">
             <span class="icon mr-2">
               <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
             </span>
