@@ -51,7 +51,6 @@ export interface GlobeModel {
     pitch?: number;
     color?: string;
     light: boolean;
-    linework?: boolean;
     linewidth?: number;
     interactive?: boolean;
     sec?: number;
