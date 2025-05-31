@@ -17,49 +17,53 @@ const { navItems, parent } = Astro.props;
 ---
 
 <footer class="footer">
-  <section class="section">
-  <div class="columns">
-    <div class="column is-one-third">
-      <div class="block">
-        <p class="has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
-        <p>{data.subtitle}</p>     
-        <p><a href={data.url}>{data.url}</a></p>
-        {parent && 
-          <p><a href={parent.url}>{parent.name}</a></p>
-        }   
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="block">
+          <p class="has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
+          <p>{data.subtitle}</p>     
+          <p><a href={data.url}>{data.url}</a></p>
+          {parent && 
+            <p><a href={parent.url}>{parent.name}</a></p>
+          }   
+        </div>
+        <div class="block">
+            {
+              data.socials.map((platform) => (
+                <div class="tag is-medium">
+                  <span class="icon mr-2">
+                    <Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} />
+                  </span>
+                  <a href={platform.url}>{platform.url.split("/").pop()}</a>
+                </div>
+              ))
+            }
+        </div>
       </div>
-      <div class="block">
-          {
-            data.socials.map((platform) => (
-                
-          <div class="tag is-medium">
-            <span class="icon mr-2">
-              <Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} />
-            </span>
-            <a href={platform.url}>{platform.url.split("/").pop()}</a>
-          </div>
-            ))
-          }
+      <div class="column is-one-third">
+        <ul>
+        {
+              navItems.map((item) => (
+                  <li><a href={item.path}>{item.title}</a></li>
+              ))
+        }
+        </ul>
       </div>
-    </div>
-    <div class="column is-one-third">
-      <ul>
-      {
-            navItems.map((item) => (
-                <li><a href={item.path}>{item.title}</a></li>
-            ))
-      }
-      </ul>
-    </div>
-    <div class="column is-one-third">
-      <ul>
-        <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
-        <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
-        <li>{data.office.address}</li>
-        <li>{data.office.address2}</li>
-        <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
-      </ul>
+      <div class="column is-one-third">
+        <ul>
+          <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
+          <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
+          <li>{data.office.address}</li>
+          <li>{data.office.address2}</li>
+          <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
+        </ul>
+      </div>
     </div>
   </div>
-  </section>
 </footer>
+<style>
+  footer {
+    z-index: 5;
+  }
+</style>
