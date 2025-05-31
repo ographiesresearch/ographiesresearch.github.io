@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+$primary: #990000;
+$shadow-offset: 3px;
+
+
+@use "bulma/sass" with (
+    $primary: $primary,
+    $link: $primary,
+    $text-strong: $primary,
+    $text-weak: $primary,
+    $radius-large: 0,
+    $radius-medium: 0,
+    $radius-small: 0,
+    $radius: 0
+);
+
+a {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+}
+
+.text-shadow {
+    text-shadow: $shadow-offset $shadow-offset $primary;
+}
+
+.box-shadow {
+    box-shadow: $shadow-offset $shadow-offset $primary;
+}

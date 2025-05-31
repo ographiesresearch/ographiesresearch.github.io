@@ -5,22 +5,12 @@ interface Props extends ImageModel {};
 
 const {src, alt} = Astro.props;
 
-import { baseColor } from '@ts/helpers'
-
 let photopath = src && '/src/assets/'.concat(src);
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,svg}')
 ---
 
-<div class={baseColor.concat(" image tile-image")}>
-    <Image src={images[photopath]()} alt={alt} />
+<div class="is-flex">
+    <Image class="is-align-self-center" src={images[photopath]()} alt={alt} />
 </div>
-
-<style type="scss">
-    img {
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-        filter: grayscale(100%);
-        mix-blend-mode: screen;
-    }
-</style>

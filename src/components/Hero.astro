@@ -18,19 +18,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 
 <section class="hero is-fullheight">
     <div class="hero-body is-fullwidth" style="z-index:1000">
-        <div class="columns is-fullwidth is-vcentered" style="width:100%">
-            <div class="column is-one-fifth has-text-centered image-shadow-success">
+        <div class="box box-shadow columns is-fullwidth is-vcentered" style="width:100%">
+            <div class="column is-one-fifth has-text-centered">
                 <Image 
-                    class:list={["image-shadow-success"]}
                     src={images[photopath]()} 
                     alt={"Logo of ".concat(title)}
                      />
             </div>
             <div class="column">
-                <h1 class="title has-text-danger is-size-1 text-shadow-success"> {title}</h1>
-                <p class="subtitle has-text-danger is-size-2 text-shadow-success">{subtitle}</p>
+                <h1 class="title is-size-1"> {title}</h1>
+                <p class="subtitle is-size-2">{subtitle}</p>
                 {parent &&
-                    <p class="subtitle has-text-danger is-size-3 text-shadow-success"><a href={parent.url}>{parent.name}</a></p>
+                    <p class="subtitle is-size-3"><a href={parent.url}>{parent.name}</a></p>
                 }
             </div>
         </div>

@@ -51,7 +51,6 @@ export interface GlobeModel {
     pitch?: number;
     color?: string;
     light: boolean;
-    linework?: boolean;
     linewidth?: number;
     interactive?: boolean;
     sec?: number;
@@ -61,17 +60,6 @@ export interface ImageModel {
     src: string;
     alt: string;      
 }
-
-export type MapBoxLayerModel = [
-    string,
-    { 
-        id: string,
-        layout: object,
-        source: string,
-        "source-layer": string,
-        type: string
-    }
-]
 
 export interface ConfigModel extends OrgModel {
     people: PersonModel[],

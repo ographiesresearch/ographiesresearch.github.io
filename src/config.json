@@ -1,11 +1,10 @@
 {
     "name": "OGRAPHIES Research & Design",
     "corp_form": "LLC",
-    "logo": "logo_medium.png",
+    "logo": "logo_medium_red.png",
     "subtitle": "When mapping matters.",
     "url": "https://ographiesresearch.com",
     "description": "[OGRAPHIES Research & Design](https://ographiesresearch.com) is a mission-driven GIS, mapping, and spatial data science consultancy based in Greater Boston that designs tools and analyzes problems for clients who are working towards a more just world. [OGRAPHIES](https://ographiesresearch.com) is not a traditional GIS consultancy. [OGRAPHIES](https://ographiesresearch.com) builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
-    "bookingurl": "https://calendar.app.google/zLn7fQT7czQ5cbya9",
     "office": {
         "address": "PO Box 400123",
         "address2": null,
@@ -26,7 +25,7 @@
             "name": "Eric Robsky Huntley",
             "photo": "eric.jpg",
             "leadership": true,
-            "creds": ["PhD"],
+            "creds": ["PhD", "GISP"],
             "pronouns": "they/them",
             "roles": ["Founder", "Principal"],
             "email": "eric@ographiesresearch.com",
@@ -37,7 +36,7 @@
                 }
             ],
             "skills": ["spatial analysis", "GIS"],
-            "bio": "Eric Robsky Huntley, PhD is the founder and principal of [OGRAPHIES Research & Design](https://ographiesresearch.com). They are a spatial data scientist and geographer with expertise in the application of spatial data science, GIS, and cartography to problems of urban planning and policy. They currently serve on the faculty of [MIT's Department of Urban Studies and Planning](https://dusp.mit.edu/people/eric-robsky-huntley) where they direct the [Spatial Analysis and Action Research Group](https://mit-spatial-action.github.io/). They have also held academic appointments at the [Harvard Graduate School of Design](https://www.gsd.harvard.edu/) and the [Columbia School of Architecture, Planning, and Preservation](https://www.arch.columbia.edu/)."
+            "bio": "Eric Robsky Huntley, PhD, GISP is the founder and principal of [OGRAPHIES Research & Design](https://ographiesresearch.com). They are a spatial data scientist and geographer with expertise in the application of spatial data science, GIS, and cartography to problems of urban planning and policy. They currently serve on the faculty of [MIT's Department of Urban Studies and Planning](https://dusp.mit.edu/people/eric-robsky-huntley) where they direct the [Spatial Analysis and Action Research Group](https://mit-spatial-action.github.io/). They have also held academic appointments at the [Harvard Graduate School of Design](https://www.gsd.harvard.edu/) and the [Columbia School of Architecture, Planning, and Preservation](https://www.arch.columbia.edu/)."
         }
     ],
     "clients": [
@@ -115,8 +114,7 @@
         "zoom": 11,
         "style": "mapbox://styles/mapbox/satellite-v9",
         "bearing": -90,
-        "pitch": 30,
-        "linework": false,
+        "pitch": 50,
         "linewidth": 0.25,
         "interactive": true,
         "light": true,

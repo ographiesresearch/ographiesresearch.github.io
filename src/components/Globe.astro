@@ -7,15 +7,14 @@ interface Props extends GlobeModel {
     accesstoken: string;
 }
 
-const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, light = true, linewidth = 0.1, linework = false, interactive = false, sec = 8000} = Astro.props;
+const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, light = true, linewidth = 0.1, interactive = false, sec = 8000} = Astro.props;
 
 let figureColor = light ? 'danger' : 'success';
 
 ---
-
 <div transition:persist id="map"/>
+<div transition:persist id="bg"/>
 <mapbox-map
-    transition:persist
     data-lat={lat}
     data-lng={lng}
     data-zoom={zoom}
@@ -25,17 +24,12 @@ let figureColor = light ? 'danger' : 'success';
     data-accesstoken={accesstoken}
     data-figureColor={figureColor}
     data-linewidth={linewidth}
-    data-linework={Number(linework)}
-    data-interactive={Number(interactive)}
+    data-interactive={interactive}
     data-sec={sec}
 />
 
 <script>
-    import { type MapBoxLayerModel } from '@ts/Models'
     import mapboxgl from "mapbox-gl"
-    import * as stylesRaw from 'src/sass/_variables.module.scss';
-    import { type StylesModel } from '@ts/Models';
-    const styles:StylesModel = Object(stylesRaw);
 
     class MapboxMap extends HTMLElement {
         constructor() {
@@ -44,31 +38,27 @@ let figureColor = light ? 'danger' : 'success';
             const map = new mapboxgl.Map({
                 container: 'map',
                 projection: 'globe',
-                center: [this.dataset.lng, this.dataset.lat],
+                center: [Number(this.dataset.lng), Number(this.dataset.lat)],
                 interactive: Boolean(this.dataset.interactive),
-                bearing: this.dataset.bearing,
-                pitch: this.dataset.pitch,
-                zoom: this.dataset.zoom
+                bearing: Number(this.dataset.bearing),
+                pitch: Number(this.dataset.pitch),
+                zoom: Number(this.dataset.zoom)
             })
 
             map.setStyle(this.dataset.style);
 
             map.on('renderstart', () => {
-                this.removeMB(map);
+                this.removeMB();
             })
 
-            if (Boolean(this.dataset.linework)) {
-                map.on('style.load', () => {
-                    this.lineWork(map);
-                })
-            }
             map.on('moveend', () => {
                 this.spinGlobe(map);
             });
+            
             this.spinGlobe(map);
         }
 
-        removeMB(map) {
+        removeMB() {
             interface SelectedElement extends Element{
                 style: CSSStyleDeclaration;
             }
@@ -76,37 +66,10 @@ let figureColor = light ? 'danger' : 'success';
             ctrl.style["display"] = "none";
         }
 
-        lineWork(map) {
-            const layers = map.getStyle().layers;
-            Object.entries(layers).forEach((s:MapBoxLayerModel) => {
-                if (s[1].type == "line") {
-                        map.setPaintProperty(s[1].id, 'line-color', styles[this.dataset.figureColor]);
-                        map.setPaintProperty(s[1].id, 'line-width', Number(this.dataset.linewidth));
-                }
-                if (s[1].type == "fill") {
-                    map.removeLayer(s[1].id)
-                    let id = s[1]['source-layer'].concat("-manual-line");
-                    if(!map.getLayer(id)) {
-                        map.addLayer({
-                            id: id,
-                            source: s[1].source,
-                            "source-layer": s[1]['source-layer'],
-                            type: "line"
-                        })
-                        map.setPaintProperty(id, 'line-color', styles[this.dataset.figureColor]);
-                        map.setPaintProperty(id, 'line-width', Number(this.dataset.linewidth));
-                    }
-                }
-                if (['symbol', 'background'].includes(s[1].type) || s[1].id.includes('-case')) {
-                    map.removeLayer(s[1].id)
-                }
-            })
-        }
-
         spinGlobe(map) {
             let cnt = map.getCenter();
             cnt.lng -= 360 / Number(this.dataset.sec);
-            map.easeTo({ center: cnt, duration: 1000, easing: (n) => n });
+            map.easeTo({ center: cnt, duration: 3000, easing: (n) => n });
         }
     } 
     customElements.define("mapbox-map", MapboxMap);
@@ -114,12 +77,27 @@ let figureColor = light ? 'danger' : 'success';
 
 <style>
     #map {
-        mix-blend-mode: screen;
-        filter: grayscale(100%);
+        filter: saturate(0%);
         height: 100%;
         width: 100vw;
         position: fixed;
         top: 0;
         z-index: -1;
+        mix-blend-mode: screen;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #map {
+            mix-blend-mode: overlay;
+        }
+    }
+
+    #bg {
+        background-color: #990000;
+        height: 100%;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        z-index: -2;
     }
 </style>

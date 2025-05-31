@@ -2,11 +2,13 @@
 import Header from '@components/Header.astro';
 import Globe from '@components/Globe.astro';
 import Footer from '@components/Footer.astro';
-import Background from '@components/Background.astro';
 import { SEO } from "astro-seo";
-import mime from 'mime';
+import { ClientRouter } from "astro:transitions";
+import { getSecret } from 'astro:env/server';
 
-import '../sass/styles.scss';
+import '../styles.scss';
+
+const key = getSecret('PUBLIC_MAPBOX_KEY');
 
 interface Props {
   name: string;
@@ -32,18 +34,6 @@ const data:ConfigModel = dataRaw;
 
 const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
 
-const og = "logo" in data ? {
-	basic: {
-		title: name,
-		type: "website",
-		image: logoPath
-	},
-	image: {
-		type: mime.getType(logoPath.split('.').pop()),
-		alt: "Logo for ".concat(name)
-	}
-} : null;
-
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -52,22 +42,34 @@ const og = "logo" in data ? {
 			title={name},
 			description={data.description},
 			charset="utf-8",
-			openGraph={og}
+			canonical="https://ographiesresearch.com",
+			openGraph={{
+				basic: {
+					title: `${data.subtitle}`,
+					type: "website",
+					image: "https://github.com/ographiesresearch/ographiesresearch.github.io/raw/refs/heads/main/src/assets/logo_medium.png",
+					url: "https://ographiesresearch.com"
+				},
+				optional: {
+					description: `${data.subtitle}`,
+    				locale: "en_US",
+					siteName: `${name}P`
+				}
+			}}
 		/>
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body>
-		<section class="section is-fullheight">
-			<Header {navItems}/>
+		<section id="body" class="section is-fullheight">
 			<div class="container" id="content">
+				<Header {navItems}/>
 				<slot/>
 			</div>
 		</section>
 		<Footer navItems = {navItems}, parent = {data.parent}/>
 		<Globe
-		transition:persist
 		sec={data.map.sec}
 		lat={data.map.lat} 
 		lng={data.map.lng}
@@ -76,11 +78,10 @@ const og = "logo" in data ? {
 		bearing={data.map.bearing}
 		pitch={data.map.pitch}
 		color={data.map.color}
-		linework={data.map.linework}
 		light={data.map.light}
 		linewidth={data.map.linewidth}
 		interactive={data.map.interactive}
-		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
-		<Background light={data.map.light}/>
+		accesstoken={key}/>
 	</body>
 </html>
+<ClientRouter />
