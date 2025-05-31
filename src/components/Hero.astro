@@ -18,10 +18,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 
 <section class="hero is-fullheight">
     <div class="hero-body is-fullwidth" style="z-index:1000">
-        <div class="columns is-fullwidth is-vcentered" style="width:100%">
-            <div class="column is-one-fifth has-text-centered image-shadow">
+        <div class="box box-shadow columns is-fullwidth is-vcentered" style="width:100%">
+            <div class="column is-one-fifth has-text-centered">
                 <Image 
-                    class:list={["image-shadow"]}
                     src={images[photopath]()} 
                     alt={"Logo of ".concat(title)}
                      />
