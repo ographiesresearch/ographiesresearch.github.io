@@ -1,7 +1,7 @@
 {
     "name": "OGRAPHIES Research & Design",
     "corp_form": "LLC",
-    "logo": "logo_medium.png",
+    "logo": "logo_medium_red.png",
     "subtitle": "When mapping matters.",
     "url": "https://ographiesresearch.com",
     "description": "[OGRAPHIES Research & Design](https://ographiesresearch.com) is a mission-driven GIS, mapping, and spatial data science consultancy based in Greater Boston that designs tools and analyzes problems for clients who are working towards a more just world. [OGRAPHIES](https://ographiesresearch.com) is not a traditional GIS consultancy. [OGRAPHIES](https://ographiesresearch.com) builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
@@ -114,7 +114,7 @@
         "zoom": 11,
         "style": "mapbox://styles/mapbox/satellite-v9",
         "bearing": -90,
-        "pitch": 30,
+        "pitch": 50,
         "linewidth": 0.25,
         "interactive": true,
         "light": true,
