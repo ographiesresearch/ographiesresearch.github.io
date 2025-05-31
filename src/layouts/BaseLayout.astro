@@ -2,12 +2,14 @@
 import Header from '@components/Header.astro';
 import Globe from '@components/Globe.astro';
 import Footer from '@components/Footer.astro';
-import Background from '@components/Background.astro';
 import { SEO } from "astro-seo";
 import mime from 'mime';
 import { ClientRouter } from "astro:transitions";
+import { getSecret } from 'astro:env/server';
 
 import '../styles/styles.scss';
+
+const key = getSecret('PUBLIC_MAPBOX_KEY');
 
 interface Props {
   name: string;
@@ -80,8 +82,7 @@ const og = "logo" in data ? {
 		light={data.map.light}
 		linewidth={data.map.linewidth}
 		interactive={data.map.interactive}
-		accesstoken={import.meta.env.PUBLIC_MAPBOX_KEY}/>
-		<Background light={data.map.light}/>
+		accesstoken={key}/>
 	</body>
 </html>
 <ClientRouter />
