@@ -11,6 +11,6 @@ import { Image } from 'astro:assets';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,svg}')
 ---
 
-<div class={"tile-image"}>
-    <Image src={images[photopath]()} alt={alt} />
+<div class="is-flex">
+    <Image class="is-align-self-center" src={images[photopath]()} alt={alt} />
 </div>
