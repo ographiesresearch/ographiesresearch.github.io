@@ -11,10 +11,6 @@ const data:ConfigModel = dataRaw;
 
 let leadership = data.people.filter(function(person) {
       return person.leadership;
- });
-
-let people = data.people.filter(function(person) {
-    return !person.leadership;
 });
 
 let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));

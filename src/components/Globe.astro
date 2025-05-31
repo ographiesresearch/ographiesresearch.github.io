@@ -29,11 +29,7 @@ let figureColor = light ? 'danger' : 'success';
 />
 
 <script>
-    import { type MapBoxLayerModel } from '@ts/Models'
     import mapboxgl from "mapbox-gl"
-    import * as stylesRaw from '../styles.scss';
-    import { type StylesModel } from '@ts/Models';
-    const styles:StylesModel = Object(stylesRaw);
 
     class MapboxMap extends HTMLElement {
         constructor() {
@@ -52,7 +48,7 @@ let figureColor = light ? 'danger' : 'success';
             map.setStyle(this.dataset.style);
 
             map.on('renderstart', () => {
-                this.removeMB(map);
+                this.removeMB();
             })
 
             map.on('moveend', () => {
@@ -62,7 +58,7 @@ let figureColor = light ? 'danger' : 'success';
             this.spinGlobe(map);
         }
 
-        removeMB(map) {
+        removeMB() {
             interface SelectedElement extends Element{
                 style: CSSStyleDeclaration;
             }

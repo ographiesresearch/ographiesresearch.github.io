@@ -61,17 +61,6 @@ export interface ImageModel {
     alt: string;      
 }
 
-export type MapBoxLayerModel = [
-    string,
-    { 
-        id: string,
-        layout: object,
-        source: string,
-        "source-layer": string,
-        type: string
-    }
-]
-
 export interface ConfigModel extends OrgModel {
     people: PersonModel[],
     clients: OrgModel[],
