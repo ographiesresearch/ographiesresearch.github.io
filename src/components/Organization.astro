@@ -22,45 +22,45 @@ const { org, logo, columns = true} = Astro.props;
     <div class="columns is-vcentered">
     <div class="column is-one-quarter has-text-centered">
       <ImageBox 
-          class:list={["image-shadow-success"]}
+          class:list={["image-shadow"]}
           src={logo} 
           alt={"Logo of ".concat(org.name)}
             />
     </div>
     <div class="column">
-      <p class="title is-4 has-text-danger">{org.name}</p>
-      <p class="subtitle is-4 has-text-danger">{org.subtitle}</p>
+      <p class="title is-4">{org.name}</p>
+      <p class="subtitle is-4">{org.subtitle}</p>
       {org.parent && 
-        <p class="has-text-danger"><a href={org.parent.url}>{org.parent.name}</a></p>
+        <p><a href={org.parent.url}>{org.parent.name}</a></p>
       }   
     </div>
   </div>
   </div>
   <div class="block">
-    <p class="has-text-danger" set:html={md.renderInline(org.description)}></p>
+    <p set:html={md.renderInline(org.description)}></p>
   </div>
   <div class="block">
     <ul>
-      <li>{org.email && <a href={"mailto:".concat(org.email)} class="has-text-danger">{org.email}</a>}</li>
-      <li>{org.phone && <a href={"tel:".concat(org.phone)} class="has-text-danger">{org.phone}</a>}</li>
-      <li class="has-text-danger">{org.office.address}</li>
-      <li class="has-text-danger">{org.office.address2}</li>
-      <li class="has-text-danger">{org.office.city}, {org.office.state} {org.office.postal}</li>
+      <li>{org.email && <a href={"mailto:".concat(org.email)}>{org.email}</a>}</li>
+      <li>{org.phone && <a href={"tel:".concat(org.phone)}>{org.phone}</a>}</li>
+      <li>{org.office.address}</li>
+      <li>{org.office.address2}</li>
+      <li>{org.office.city}, {org.office.state} {org.office.postal}</li>
     </ul>
   </div>
   {"bookingurl" in org && 
   <div class="block">
-    <a href={org.bookingurl} class="button is-success box-shadow-danger has-text-danger">Book a Consultation</a>
+    <a href={org.bookingurl} class="button box-shadow">Book a Consultation</a>
   </div>
   }
   <div class="block">
       {
         org.socials.map((platform) => (
-          <div class="tag is-medium is-success has-text-danger">
+          <div class="tag is-mediumr">
             <span class="icon mr-2">
               <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
             </span>
-            <a href={platform.url} class="has-text-danger">{platform.url.split("/").pop()}</a>
+            <a href={platform.url}>{platform.url.split("/").pop()}</a>
           </div>
         ))
       }

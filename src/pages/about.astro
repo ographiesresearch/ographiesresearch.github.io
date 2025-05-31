@@ -29,7 +29,7 @@ let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.na
   </section>
   {(people.length >0 ) &&
     <section class="section">
-        <h1 class="title has-text-white text-shadow-danger">Our Team</h1>
+        <h1 class="title text-shadowr">Our Team</h1>
       <div class="columns is-multiline">
         <People people={people} columns={true} />
       </div>
@@ -37,22 +37,22 @@ let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.na
   }
   {(data.clients.length > 0) && 
     <section class="section">
-        <div class="has-text-danger title text-shadow-success">
+        <div class="title text-shadow">
           Clients
         </div>
       <div class="columns is-multiline">
       {
         clients.map((client) => (
           <div class="column is-one-quarter">
-            <div class="box has-background-success box-shadow-danger">
+            <div class="box box-shadow">
               {"logo" in client && 
                 <div class="block client-logo">
                   <a href={client.url} aria-label={"Go to website of ".concat(client.name)}><ImageBox src={client.logo} alt={"Logo of ".concat(client.name)} /></a>
                 </div>
               }
               <ul>
-                <li class="has-text-danger"><a href={client.url}>{client.name}</a></li>
-                <li class="has-text-danger">{client.office.city}, {client.office.state}</li>
+                <li><a href={client.url}>{client.name}</a></li>
+                <li>{client.office.city}, {client.office.state}</li>
               </ul>
             </div>
           </div>  

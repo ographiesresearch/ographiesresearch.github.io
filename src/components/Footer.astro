@@ -16,27 +16,27 @@ const iconSize = 20;
 const { navItems, parent } = Astro.props;
 ---
 
-<footer class="footer has-background-success">
+<footer class="footer">
   <section class="section">
   <div class="columns">
     <div class="column is-one-third">
       <div class="block">
-        <p class="has-text-danger has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
-        <p class="has-text-danger">{data.subtitle}</p>     
-        <p class="has-text-danger"><a href={data.url}>{data.url}</a></p>
+        <p class="has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
+        <p>{data.subtitle}</p>     
+        <p><a href={data.url}>{data.url}</a></p>
         {parent && 
-          <p class="has-text-danger"><a href={parent.url}>{parent.name}</a></p>
+          <p><a href={parent.url}>{parent.name}</a></p>
         }   
       </div>
       <div class="block">
           {
             data.socials.map((platform) => (
                 
-          <div class="tag is-medium is-success has-text-danger">
+          <div class="tag is-medium">
             <span class="icon mr-2">
               <Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} />
             </span>
-            <a href={platform.url} class="has-text-danger">{platform.url.split("/").pop()}</a>
+            <a href={platform.url}>{platform.url.split("/").pop()}</a>
           </div>
             ))
           }
@@ -46,18 +46,18 @@ const { navItems, parent } = Astro.props;
       <ul>
       {
             navItems.map((item) => (
-                <li><a href={item.path} class="has-text-danger">{item.title}</a></li>
+                <li><a href={item.path}>{item.title}</a></li>
             ))
       }
       </ul>
     </div>
     <div class="column is-one-third">
       <ul>
-        <li>{data.email && <a href={"mailto:".concat(data.email)} class="has-text-danger">{data.email}</a>}</li>
-        <li>{data.phone && <a href={"tel:".concat(data.phone)} class="has-text-danger">{data.phone}</a>}</li>
-        <li class="has-text-danger">{data.office.address}</li>
-        <li class="has-text-danger">{data.office.address2}</li>
-        <li class="has-text-danger">{data.office.city}, {data.office.state} {data.office.postal}</li>
+        <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
+        <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
+        <li>{data.office.address}</li>
+        <li>{data.office.address2}</li>
+        <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
       </ul>
     </div>
   </div>

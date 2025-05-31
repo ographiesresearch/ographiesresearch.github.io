@@ -14,10 +14,3 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 <div class={"tile-image"}>
     <Image src={images[photopath]()} alt={alt} />
 </div>
-
-<style type="scss">
-    img {
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-        filter: grayscale(100%);
-    }
-</style>
