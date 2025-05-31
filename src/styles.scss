@@ -27,9 +27,3 @@ a {
 .box-shadow {
     box-shadow: $shadow-offset $shadow-offset $primary;
 }
-
-@media (prefers-color-scheme: dark) {
-    #body {
-        background-color: $primary;
-    }
-}

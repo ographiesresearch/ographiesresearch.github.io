@@ -13,6 +13,7 @@ let figureColor = light ? 'danger' : 'success';
 
 ---
 <div transition:persist id="map"/>
+<div transition:persist id="bg"/>
 <mapbox-map
     data-lat={lat}
     data-lng={lng}
@@ -86,5 +87,21 @@ let figureColor = light ? 'danger' : 'success';
         position: fixed;
         top: 0;
         z-index: -1;
+        mix-blend-mode: screen;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #map {
+            mix-blend-mode: overlay;
+        }
+    }
+
+    #bg {
+        background-color: #990000;
+        height: 100%;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        z-index: -2;
     }
 </style>
