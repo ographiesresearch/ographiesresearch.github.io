@@ -5,6 +5,7 @@ import Footer from '@components/Footer.astro';
 import Background from '@components/Background.astro';
 import { SEO } from "astro-seo";
 import mime from 'mime';
+import { ClientRouter } from "astro:transitions";
 
 import '../styles/styles.scss';
 
@@ -67,7 +68,6 @@ const og = "logo" in data ? {
 		</section>
 		<Footer navItems = {navItems}, parent = {data.parent}/>
 		<Globe
-		transition:persist
 		sec={data.map.sec}
 		lat={data.map.lat} 
 		lng={data.map.lng}
@@ -84,3 +84,4 @@ const og = "logo" in data ? {
 		<Background light={data.map.light}/>
 	</body>
 </html>
+<ClientRouter />

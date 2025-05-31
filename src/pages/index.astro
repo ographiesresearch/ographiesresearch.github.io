@@ -6,10 +6,7 @@ import { type ConfigModel } from '@ts/Models'
 
 import dataRaw from "@src/config.json";
 const data:ConfigModel= dataRaw;
-
-import { ViewTransitions } from 'astro:transitions';
 ---
 <BaseLayout name={data.name}>
 	<Hero title={data.name} subtitle={data.subtitle} logo={dataRaw.logo} parent={data.parent}/>
 </BaseLayout>
-<ViewTransitions/>

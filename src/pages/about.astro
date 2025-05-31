@@ -3,7 +3,6 @@ import BaseLayout from '@layouts/BaseLayout.astro'
 import People from '@components/People.astro'
 import ImageBox from '@components/ImageBox.astro'
 import Organization from '@components/Organization.astro'
-import { ViewTransitions } from 'astro:transitions'
 
 import { type ConfigModel } from '@ts/Models'
 
@@ -64,7 +63,6 @@ let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.na
     </section>
   }
 </BaseLayout>
-<ViewTransitions/>
 
 <style>
   .client-logo :global(img) {
