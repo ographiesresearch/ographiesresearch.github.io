@@ -1,12 +1,18 @@
 @charset "utf-8";
 
-@import "_variables.module.scss";
+$primary: #990000;
+$shadow-offset: 3px;
 
-@import "node_modules/bulma/bulma.sass";
-
-#content {
-    min-height: 60vh;
-  }
+@use "bulma/sass" with (
+    $primary: $primary,
+    $link: $primary,
+    $text-strong: $primary,
+    $text-weak: $primary,
+    $radius-large: 0,
+    $radius-medium: 0,
+    $radius-small: 0,
+    $radius: 0
+);
 
 @include tablet {
     .tile-image {
