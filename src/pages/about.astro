@@ -20,7 +20,7 @@ let people = data.people.filter(function(person) {
 let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 ---
 <BaseLayout name={data.name}>
-  <div id="about">
+  <div class="mt-3">
     <div class="block">
       <div class="columns">
         <Organization org={data} columns={true}, logo={dataRaw.logo}/>
@@ -32,7 +32,7 @@ let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.na
         <div class="title">
           Clients
         </div>
-        <div class="grid is-col-min-8">
+        <div class="grid is-col-min-10">
         {
           clients.map((client) => (
             <Client {client}/>
@@ -45,9 +45,3 @@ let clients = data.clients.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.na
     </div>
   </div>
 </BaseLayout>
-
-<style>
-  .box {
-    box-shadow: none;
-  }
-</style>

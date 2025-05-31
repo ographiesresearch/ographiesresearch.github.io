@@ -26,9 +26,13 @@ const { client } = Astro.props;
     padding: 0.125em;
   }
 
-@media (prefers-color-scheme: dark) {
-    .client-logo :global(img) {
-        filter: grayscale(100%) brightness(10000%);
+    @media (prefers-color-scheme: dark) {
+        .client-logo :global(img) {
+            filter: grayscale(100%) brightness(10000%);
+        }
     }
-}
+
+    .box {
+        box-shadow: none;
+    }
 </style>
