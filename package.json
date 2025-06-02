@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.5",
+    "@astrojs/check": "^0.9.4",
     "@fontsource-variable/noto-sans-hk": "^5.2.5",
     "astro": "^5.8.0",
     "astro-icon": "^1.1.0",
