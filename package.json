@@ -18,7 +18,7 @@
     "mapbox-gl": "^3.15.0",
     "markdown-it": "^14.1.0",
     "sass": "^1.93.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3"
