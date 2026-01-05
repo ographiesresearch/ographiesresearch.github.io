@@ -1,0 +1,44 @@
+---
+import "../styles/styles.scss";
+
+import { type ConfigModel } from "@ts/Models";
+
+import dataRaw from "@src/config.json";
+const data: ConfigModel = dataRaw;
+
+let leadership = data.people.filter(function (person) {
+    return person.leadership;
+});
+---
+
+<div id="target" style="display: none;">
+    {
+        leadership.map((person) => (
+            <div class="bizcard">
+                <h1>
+                    {person.name} {person.creds && person.creds.join(", ")}
+                </h1>
+                <p>{person.roles && person.roles.join(", ")}</p>
+                <p>{data.name}</p>
+                <p>{person.email}</p>
+            </div>
+        ))
+    }
+</div>
+
+<script>
+    // This runs only in the client browser
+    import { Previewer } from "pagedjs";
+
+    const previewer = new Previewer();
+
+    previewer
+        .preview(
+            document.querySelector("#target").innerHTML,
+            ["/card.css"],
+            document.body,
+        )
+        .then((flow) => {
+            console.log("Rendered", flow.total, "pages");
+        });
+</script>

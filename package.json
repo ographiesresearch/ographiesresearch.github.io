@@ -17,6 +17,7 @@
     "bulma": "^1.0.4",
     "mapbox-gl": "^3.17.0",
     "markdown-it": "^14.1.0",
+    "pagedjs": "^0.4.3",
     "sass": "^1.97.1",
     "typescript": "^5.9.3"
   },
