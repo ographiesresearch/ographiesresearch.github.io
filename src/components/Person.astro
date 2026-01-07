@@ -56,9 +56,9 @@ const iconSize = 20;
         person.socials.map((platform) => (
           <div class="tag is-medium">
             <span class="icon mr-2">
-              <Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} />
+              <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
             </span>
-            <a href={platform.url}>{platform.url.split("/").pop()}</a>
+            <a href={platform.url}>{platform.user}</a>
           </div>
         ))
       }

@@ -53,15 +53,17 @@ const { org, logo, columns = true} = Astro.props;
   </div>
   }
   <div class="block">
+    <div class="tags">
       {
         org.socials.map((platform) => (
           <div class="tag is-medium">
             <span class="icon mr-2">
               <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
             </span>
-            <a href={platform.url}>{platform.url.split("/").pop()}</a>
+            <a href={platform.url}>{platform.user}</a>
           </div>
         ))
       }
+    </div>
   </div>
 </AboutCard>

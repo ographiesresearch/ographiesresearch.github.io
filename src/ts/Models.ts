@@ -1,6 +1,7 @@
 export interface NameURLModel {
     name: string;
     url: string;
+    user: string;
 }
 
 export interface PersonModel {

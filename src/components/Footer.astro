@@ -29,6 +29,7 @@ const { navItems, parent } = Astro.props;
           }   
         </div>
         <div class="block">
+          <div class="tags">
             {
               data.socials.map((platform) => (
                 <div class="tag is-medium">
@@ -39,6 +40,7 @@ const { navItems, parent } = Astro.props;
                 </div>
               ))
             }
+          </div>
         </div>
       </div>
       <div class="column is-one-third">

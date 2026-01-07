@@ -17,7 +17,13 @@
     "socials": [
         {
             "name": "Github",
-            "url": "https://github.com/ographiesresearch"
+            "url": "https://github.com/ographiesresearch",
+            "user": "ographiesresearch"
+        },
+        {
+            "name": "Web",
+            "url": "https://ographiesresearch.com",
+            "user": "Website"
         }
     ],
     "people": [
@@ -26,13 +32,19 @@
             "photo": "eric.jpg",
             "leadership": true,
             "creds": ["PhD", "GISP"],
-            "pronouns": "they/them",
+            "pronouns": "they/he",
             "roles": ["Founder", "Principal"],
             "email": "eric@ographiesresearch.com",
             "socials": [
                 {
                     "name": "Github",
-                    "url": "https://github.com/ericrobskyhuntley"
+                    "url": "https://github.com/ericrobskyhuntley",
+                    "user": "ericrobskyhuntley"
+                },
+                {
+                    "name": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/ericrobskyhuntley/",
+                    "user": "LinkedIn"
                 }
             ],
             "skills": ["spatial analysis", "GIS"],
