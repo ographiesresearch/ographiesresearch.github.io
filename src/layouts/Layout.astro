@@ -16,17 +16,7 @@ interface Props {
 
 const { name } = Astro.props;
 
-const navItems = [
-    {
-        title: "Home",
-        path: "/",
-    },
-    {
-        title: "About",
-        path: "/about",
-    },
-
-]
+const navItems = null;
 
 import { type ConfigModel } from '@ts/Models'
 import dataRaw from "@src/config.json";
@@ -64,26 +54,28 @@ const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body>
-		<section id="body" class="section is-fullheight">
+		<section class="section is-fullheight">
 			<div class="container" id="content">
-				<Header {navItems}/>
+				{navItems &&
+					<Header {navItems}/>
+				}
 				<slot/>
+			<Globe
+			sec={data.map.sec}
+			lat={data.map.lat} 
+			lng={data.map.lng}
+			zoom={data.map.zoom}
+			style={data.map.style}
+			bearing={data.map.bearing}
+			pitch={data.map.pitch}
+			color={data.map.color}
+			light={data.map.light}
+			linewidth={data.map.linewidth}
+			interactive={data.map.interactive}
+			accesstoken={key}/>
 			</div>
 		</section>
 		<Footer navItems = {navItems}, parent = {data.parent}/>
-		<Globe
-		sec={data.map.sec}
-		lat={data.map.lat} 
-		lng={data.map.lng}
-		zoom={data.map.zoom}
-		style={data.map.style}
-		bearing={data.map.bearing}
-		pitch={data.map.pitch}
-		color={data.map.color}
-		light={data.map.light}
-		linewidth={data.map.linewidth}
-		interactive={data.map.interactive}
-		accesstoken={key}/>
 	</body>
 </html>
 <ClientRouter />

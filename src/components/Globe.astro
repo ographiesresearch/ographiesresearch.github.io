@@ -12,8 +12,10 @@ const { lng, lat, zoom, style, bearing, pitch = 0, accesstoken, light = true, li
 let figureColor = light ? 'danger' : 'success';
 
 ---
-<div transition:persist id="map"/>
-<div transition:persist id="bg"/>
+
+<div transition:persist class="colorize-wrapper">
+    <div transition:persist id="map" class="box-shadow"/>
+</div>
 <mapbox-map
     data-lat={lat}
     data-lng={lng}
@@ -76,28 +78,27 @@ let figureColor = light ? 'danger' : 'success';
 </script>
 
 <style>
-    #map {
-        filter: saturate(0%);
-        height: 100%;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        z-index: -1;
+    .colorize-wrapper {
+        position: relative;
+        background-color: red;
+        height: 100%
+    }
+
+    .colorize-wrapper #map {
+        filter: grayscale(100%);
         mix-blend-mode: screen;
+        height: calc(100% - 5rem);
+        width: calc(100% - 5rem);
+        position: fixed;
+        /* top: 2.5rem; */
+        /* left: 2.5rem; */
+        /* z-index: -1; */
+        border-radius: var(--bulma-radius-large);
     }
 
     @media (prefers-color-scheme: dark) {
         #map {
-            mix-blend-mode: overlay;
+            /* mix-blend-mode: overlay; */
         }
-    }
-
-    #bg {
-        background-color: #990000;
-        height: 100%;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        z-index: -2;
     }
 </style>

@@ -1,8 +1,8 @@
 {
-    "name": "OGRAPHIES Research & Design",
+    "name": "OGRAPHIES",
     "corp_form": "LLC",
     "logo": "logo_medium_red.png",
-    "subtitle": "When mapping matters.",
+    "subtitle": "Research & Design",
     "url": "https://ographiesresearch.com",
     "description": "[OGRAPHIES Research & Design](https://ographiesresearch.com) is a mission-driven GIS, mapping, and spatial data science consultancy based in Greater Boston that designs tools and analyzes problems for clients who are working towards a more just world. [OGRAPHIES](https://ographiesresearch.com) is not a traditional GIS consultancy. [OGRAPHIES](https://ographiesresearch.com) builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
     "office": {
@@ -13,11 +13,16 @@
         "postal": "02140"
     },
     "email": "info@ographiesresearch.com",
-    "phone": "(508) 205-9583",
+    "phone": null,
     "socials": [
         {
             "name": "Github",
             "url": "https://github.com/ographiesresearch",
+            "user": "ographiesresearch"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/company/ographiesresearch",
             "user": "ographiesresearch"
         },
         {
@@ -45,6 +50,11 @@
                     "name": "LinkedIn",
                     "url": "https://www.linkedin.com/in/ericrobskyhuntley/",
                     "user": "LinkedIn"
+                },
+                {
+                    "name": "Web",
+                    "url": "https://ericrobskyhuntley.github.io",
+                    "user": "Website"
                 }
             ],
             "skills": ["spatial analysis", "GIS"],
