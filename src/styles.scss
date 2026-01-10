@@ -26,4 +26,6 @@ a {
 
 .box-shadow {
     box-shadow: $shadow-offset $shadow-offset $primary;
+    border-top: 1px solid $primary;
+    border-left: 1px solid $primary;
 }

@@ -1,0 +1,21 @@
+---
+interface Props {
+  user: string;
+  repo: string;
+}
+
+const { user, repo } = Astro.props;
+
+const commit = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=1`)
+    .then((res) => res.json())
+    .then((res) => res[0])
+
+const dt = new Date(commit.commit.author.date);
+const locale = "en-US"
+const tz = {timeZone: "America/New_York"};
+---
+
+<div class="is-size-7">
+    Updated by <a href={commit.author.html_url}>{commit.author.login}</a> on {dt.toLocaleDateString(locale, tz)} at {dt.toLocaleTimeString(locale, tz)}.
+    <span class="is-family-monospace"><a href={commit.html_url}>#{commit.sha.substring(0, 7)}</a> "{commit.commit.message}"</span>
+</div>

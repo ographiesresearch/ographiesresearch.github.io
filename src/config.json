@@ -1,7 +1,7 @@
 {
     "name": "OGRAPHIES",
     "corp_form": "LLC",
-    "logo": "logo_medium_red.png",
+    "logo": "logotype.png",
     "subtitle": "Research & Design",
     "url": "https://ographiesresearch.com",
     "description": "[OGRAPHIES Research & Design](https://ographiesresearch.com) is a mission-driven GIS, mapping, and spatial data science consultancy based in Greater Boston that designs tools and analyzes problems for clients who are working towards a more just world. [OGRAPHIES](https://ographiesresearch.com) is not a traditional GIS consultancy. [OGRAPHIES](https://ographiesresearch.com) builds custom web applications, automates complex spatial workflows, and works to scale the complexity of our solutions to align with the capacity of our clients.",
@@ -14,6 +14,10 @@
     },
     "email": "info@ographiesresearch.com",
     "phone": null,
+    "license": {
+        "name": "MIT",
+        "url": "https://github.com/ographiesresearch/ographiesresearch.github.io/blob/main/LICENSE"
+    },
     "socials": [
         {
             "name": "Github",

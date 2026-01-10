@@ -23,7 +23,7 @@ const iconSize = 20;
   <div class="columns">
       {person.photo && 
       <div class="column is-half">
-        <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
+        <ImageBox _class="box-shadow" square={true} src={person.photo} alt={"Photo of ".concat(person.name)} />
       </div>
       }
       <div class="column">

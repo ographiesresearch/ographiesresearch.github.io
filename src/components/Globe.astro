@@ -38,7 +38,7 @@ let figureColor = light ? 'danger' : 'success';
             super()
             mapboxgl.accessToken = this.dataset.accesstoken
             const map = new mapboxgl.Map({
-                container: 'map',
+                container: 'content',
                 projection: 'globe',
                 center: [Number(this.dataset.lng), Number(this.dataset.lat)],
                 interactive: Boolean(this.dataset.interactive),
@@ -81,7 +81,8 @@ let figureColor = light ? 'danger' : 'success';
     .colorize-wrapper {
         position: relative;
         background-color: red;
-        height: 100%
+        height: 100%;
+        z-index: -100;
     }
 
     .colorize-wrapper #map {
@@ -90,9 +91,10 @@ let figureColor = light ? 'danger' : 'success';
         height: calc(100% - 5rem);
         width: calc(100% - 5rem);
         position: fixed;
+        border-radius: var(--bulma-radius-large);
         /* top: 2.5rem; */
         /* left: 2.5rem; */
-        /* z-index: -1; */
+        z-index: -1;
         border-radius: var(--bulma-radius-large);
     }
 

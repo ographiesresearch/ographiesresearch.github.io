@@ -29,21 +29,21 @@ const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
 <html lang="en">
 	<head>
 		<SEO
-			title={name},
+			title=`${data.name} ${data.subtitle}`,
 			description={data.description},
 			charset="utf-8",
 			canonical="https://ographiesresearch.com",
 			openGraph={{
 				basic: {
-					title: `${data.subtitle}`,
+					title: `${data.name} ${data.subtitle}`,
 					type: "website",
-					image: "https://github.com/ographiesresearch/ographiesresearch.github.io/raw/refs/heads/main/src/assets/logo_medium.png",
+					image: "https://github.com/ographiesresearch/ographiesresearch.github.io/raw/refs/heads/main/src/assets/logo_medium_red.png",
 					url: "https://ographiesresearch.com"
 				},
 				optional: {
-					description: `${data.subtitle}`,
+					description: `${data.description}`,
     				locale: "en_US",
-					siteName: `${name}P`
+					siteName: `${data.name} ${data.subtitle}`
 				}
 			}}
 		/>
@@ -60,19 +60,6 @@ const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
 					<Header {navItems}/>
 				}
 				<slot/>
-			<Globe
-			sec={data.map.sec}
-			lat={data.map.lat} 
-			lng={data.map.lng}
-			zoom={data.map.zoom}
-			style={data.map.style}
-			bearing={data.map.bearing}
-			pitch={data.map.pitch}
-			color={data.map.color}
-			light={data.map.light}
-			linewidth={data.map.linewidth}
-			interactive={data.map.interactive}
-			accesstoken={key}/>
 			</div>
 		</section>
 		<Footer navItems = {navItems}, parent = {data.parent}/>

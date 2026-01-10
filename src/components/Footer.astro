@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import GitHubCommit from './GitHubCommit.astro'
 
 import { type NavModel, type ConfigModel, type NameURLModel } from '@ts/Models'
 
@@ -25,6 +26,13 @@ const { navItems, parent } = Astro.props;
           {parent && 
             <p><a href={parent.url}>{parent.name}</a></p>
           }   
+          <ul>
+            <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
+            <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
+            <li>{data.office.address}</li>
+            <li>{data.office.address2}</li>
+            <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
+          </ul>
         </div>
         <div class="block">
             {
@@ -47,15 +55,12 @@ const { navItems, parent } = Astro.props;
           </ul>
         </div>
       }
-      <div class="column is-one-third">
-        <ul>
-          <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
-          <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
-          <li>{data.office.address}</li>
-          <li>{data.office.address2}</li>
-          <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
-        </ul>
-      </div>
+      {data.license &&
+        <div class="column is-one-third">
+          <p class="block">All material on this website is licensed under an <a href={data.license.url}>{data.license.name}</a> license unless otherwise specified.</p>
+          <p class="block"><GitHubCommit user="ographiesresearch" repo="ographiesresearch.github.io"/></p>
+        </div>
+      }
     </div>
   </div>
 </footer>
