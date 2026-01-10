@@ -3,7 +3,7 @@ import { type ImageModel } from "@ts/Models";
 
 interface Props extends ImageModel {
     _class?: string;
-    square: boolean;
+    square?: boolean;
 }
 
 const { src, alt, _class, square = true } = Astro.props;
