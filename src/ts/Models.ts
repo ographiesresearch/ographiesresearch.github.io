@@ -28,6 +28,10 @@ export interface OrgModel {
     url?: string;
     bookingurl?: string;
     description?: string;
+    license?: {
+        name: string;
+        url;
+    }
     office?: {
         address?: string;
         address2?: string;

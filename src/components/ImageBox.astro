@@ -1,9 +1,12 @@
 ---
 import { type ImageModel } from "@ts/Models";
 
-interface Props extends ImageModel {}
+interface Props extends ImageModel {
+    _class?: string;
+    square: boolean;
+}
 
-const { src, alt } = Astro.props;
+const { src, alt, _class, square = true } = Astro.props;
 
 let photopath = src && "/src/assets/".concat(src);
 import type { ImageMetadata } from "astro";
@@ -13,6 +16,34 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<figure class="image">
-    <Picture src={images[photopath]()} alt={alt} formats={["avif", "webp"]} loading="lazy" width={256} height={256}/>
+<figure class=`image ${square && "is-square square-box"}`>
+    <Picture
+        src={images[photopath]()}
+        alt={alt}
+        class=`${_class}`
+        formats={["avif", "webp"]}
+        loading="lazy"
+    />
 </figure>
+
+<style>
+    .square-box > picture > img {
+        border-radius: var(--bulma-radius-large);
+        object-fit: contain; /* This is the key property for cropping */
+        object-position: center center; /* Centers the focal point of the crop */
+    }
+    .padded {
+        padding: 1rem;
+    }
+
+    img.monochrome {
+        filter: brightness(0) saturate(100%) invert(10%) sepia(100%)
+            saturate(6940%) hue-rotate(47deg) brightness(104%) contrast(112%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        img.monochrome {
+            filter: grayscale(100%) brightness(10000%);
+        }
+    }
+</style>

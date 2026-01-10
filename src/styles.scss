@@ -9,10 +9,10 @@ $shadow-offset: 3px;
     $link: $primary,
     $text-strong: $primary,
     $text-weak: $primary,
-    $radius-large: 0,
-    $radius-medium: 0,
-    $radius-small: 0,
-    $radius: 0
+    // $radius-large: 0,
+    // $radius-medium: 0,
+    // $radius-small: 0,
+    // $radius: 0
 );
 
 a {
@@ -26,4 +26,6 @@ a {
 
 .box-shadow {
     box-shadow: $shadow-offset $shadow-offset $primary;
+    border-top: 1px solid $primary;
+    border-left: 1px solid $primary;
 }

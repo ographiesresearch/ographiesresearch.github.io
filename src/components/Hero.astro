@@ -12,26 +12,13 @@ const { title, subtitle, parent, logo } = Astro.props;
 let photopath = logo && '/src/assets/'.concat(logo);
 
 import { Image } from 'astro:assets';
+import ImageBox from './ImageBox.astro';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,svg}')
 
 ---
 
 <section class="hero is-fullheight">
     <div class="hero-body">
-        <div class="box box-shadow columns is-vcentered">
-            <div class="column is-one-fifth">
-                <Image 
-                    src={images[photopath]()} 
-                    alt={"Logo of ".concat(title)}
-                     />
-            </div>
-            <div class="column">
-                <h1 class="title"> {title}</h1>
-                <p class="subtitle">{subtitle}</p>
-                {parent &&
-                    <p class="subtitle"><a href={parent.url}>{parent.name}</a></p>
-                }
-            </div>
-        </div>
+        <ImageBox src="logotype.png" _class="image-shadow" alt="logo"/>
     </div>
 </section>

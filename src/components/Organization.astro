@@ -19,21 +19,11 @@ const { org, logo, columns = true} = Astro.props;
 ---
 <AboutCard columns={columns}>
   <div class="block">
-    <div class="columns is-vcentered">
-    <div class="column is-one-quarter has-text-centered">
-      <ImageBox 
-          src={logo} 
-          alt={"Logo of ".concat(org.name)}
-            />
-    </div>
-    <div class="column">
-      <p class="title">{org.name}</p>
-      <p class="subtitle">{org.subtitle}</p>
-      {org.parent && 
-        <p><a href={org.parent.url}>{org.parent.name}</a></p>
-      }   
-    </div>
-  </div>
+    <ImageBox 
+        square={false}
+        src={logo} 
+        alt={"Logo of ".concat(org.name)}
+          />
   </div>
   <div class="block">
     <p set:html={md.renderInline(org.description)}></p>
@@ -53,17 +43,13 @@ const { org, logo, columns = true} = Astro.props;
   </div>
   }
   <div class="block">
-    <div class="tags">
+    <hr/>
       {
         org.socials.map((platform) => (
-          <div class="tag is-medium">
-            <span class="icon mr-2">
-              <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
+            <span class="icon">
+              <a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} /></a>
             </span>
-            <a href={platform.url}>{platform.user}</a>
-          </div>
         ))
       }
     </div>
-  </div>
 </AboutCard>

@@ -20,14 +20,13 @@ const iconSize = 20;
 
 ---
 <AboutCard columns={columns}>
-  <div class="fixed-grid">
-    <div class="grid">
-      {"photo" in person && 
-      <div class="cell">
-        <ImageBox src={person.photo} alt={"Photo of ".concat(person.name)} />
+  <div class="columns">
+      {person.photo && 
+      <div class="column is-half">
+        <ImageBox _class="box-shadow" square={true} src={person.photo} alt={"Photo of ".concat(person.name)} />
       </div>
       }
-      <div class="cell">
+      <div class="column">
         <p class="title">{person.name}{person.creds && ", ".concat(person.creds.join(", "))}</p>
         <p class="subtitle">{person.roles && person.roles.join(", ")}</p>
         <div class="tags are-medium">
@@ -45,22 +44,20 @@ const iconSize = 20;
           </p>
         </div>
       </div>
-    </div>
   </div>
   <div class="block">
     <p set:html={md.renderInline(person.bio)}></p>
   </div>
   <div class="block">
-    <div class="tags">
+    <hr/>
+    <div class="has-text-left">
       {
         person.socials.map((platform) => (
-          <div class="tag is-medium">
-            <span class="icon mr-2">
-              <Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} />
+            <span class="icon">
+              <a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} title={`${person.name}'s ${platform.name}`} size={iconSize} /></a>
             </span>
-            <a href={platform.url}>{platform.user}</a>
-          </div>
         ))
       }
     </div>
+  </div>
 </AboutCard>

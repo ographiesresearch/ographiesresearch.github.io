@@ -1,10 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components'
+import GitHubCommit from './GitHubCommit.astro'
 
 import { type NavModel, type ConfigModel, type NameURLModel } from '@ts/Models'
 
 interface Props {
-  navItems: NavModel[];
+  navItems?: NavModel[];
   parent?: NameURLModel;
 }
 
@@ -21,46 +22,45 @@ const { navItems, parent } = Astro.props;
     <div class="columns">
       <div class="column is-one-third">
         <div class="block">
-          <p class="has-text-weight-bold">{data.name}{data.corp_form && ", ".concat(data.corp_form)}</p>
-          <p>{data.subtitle}</p>     
-          <p><a href={data.url}>{data.url}</a></p>
+          <p class="has-text-weight-bold">{data.name} {data.subtitle && data.subtitle}{data.corp_form && ", ".concat(data.corp_form)}</p>
           {parent && 
             <p><a href={parent.url}>{parent.name}</a></p>
           }   
+          <ul>
+            <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
+            <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
+            <li>{data.office.address}</li>
+            <li>{data.office.address2}</li>
+            <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
+          </ul>
         </div>
         <div class="block">
-          <div class="tags">
             {
               data.socials.map((platform) => (
-                <div class="tag is-medium">
-                  <span class="icon mr-2">
-                    <Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} />
+                  <span class="icon">
+                     <a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} /></a>
                   </span>
-                  <a href={platform.url}>{platform.url.split("/").pop()}</a>
-                </div>
               ))
             }
-          </div>
         </div>
       </div>
-      <div class="column is-one-third">
-        <ul>
-        {
-              navItems.map((item) => (
-                  <li><a href={item.path}>{item.title}</a></li>
-              ))
-        }
-        </ul>
-      </div>
-      <div class="column is-one-third">
-        <ul>
-          <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
-          <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
-          <li>{data.office.address}</li>
-          <li>{data.office.address2}</li>
-          <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
-        </ul>
-      </div>
+      {navItems && 
+        <div class="column is-one-third">
+          <ul>
+          {
+                navItems.map((item) => (
+                    <li><a href={item.path}>{item.title}</a></li>
+                ))
+          }
+          </ul>
+        </div>
+      }
+      {data.license &&
+        <div class="column is-one-third">
+          <p class="block">All material on this website is licensed under an <a href={data.license.url}>{data.license.name}</a> license unless otherwise specified.</p>
+          <p class="block"><GitHubCommit user="ographiesresearch" repo="ographiesresearch.github.io"/></p>
+        </div>
+      }
     </div>
   </div>
 </footer>
