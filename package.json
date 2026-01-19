@@ -16,7 +16,7 @@
     "astro-icon": "^1.1.0",
     "astro-seo": "^1.1.0",
     "bulma": "^1.0.4",
-    "mapbox-gl": "^3.17.0",
+    "mapbox-gl": "^3.18.0",
     "markdown-it": "^14.1.0",
     "sass": "^1.97.2",
     "typescript": "^5.9.3"
