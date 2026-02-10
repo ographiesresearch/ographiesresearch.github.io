@@ -12,6 +12,7 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource-variable/noto-sans-hk": "^5.2.10",
+    "@iconify-json/mdi": "^1.2.3",
     "astro": "^5.17.1",
     "astro-icon": "^1.1.0",
     "astro-seo": "^1.1.0",
@@ -20,8 +21,5 @@
     "markdown-it": "^14.1.0",
     "sass": "^1.97.3",
     "typescript": "^5.9.3"
-  },
-  "devDependencies": {
-    "@iconify-json/mdi": "^1.2.3"
   }
 }
