@@ -13,12 +13,12 @@
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/noto-sans-hk": "^5.2.10",
     "@iconify-json/mdi": "^1.2.3",
-    "astro": "^6.3.1",
+    "astro": "^6.4.6",
     "astro-icon": "^1.1.0",
     "astro-seo": "^1.1.0",
     "bulma": "^1.0.4",
     "mapbox-gl": "^3.23.1",
-    "markdown-it": "^14.1.1",
+    "markdown-it": "^14.2.0",
     "sass": "^1.99.0",
     "typescript": "^6.0.3"
   }
