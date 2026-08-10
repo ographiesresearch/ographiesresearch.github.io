@@ -7,13 +7,9 @@ import { getSecret } from 'astro:env/server';
 
 import '../styles.scss';
 
-const key = getSecret('PUBLIC_MAPBOX_KEY');
-
 interface Props {
   name: string;
 }
-
-const { name } = Astro.props;
 
 const navItems = null;
 
@@ -21,7 +17,6 @@ import { type ConfigModel } from '@ts/Models'
 import dataRaw from "@src/config.json";
 const data:ConfigModel = dataRaw;
 
-const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
 
 ---
 <!DOCTYPE html>
@@ -55,13 +50,15 @@ const logoPath = "logo" in data ? '/src/assets/'.concat(data.logo) : "";
 	<body>
 		<section class="section is-fullheight">
 			<div class="container" id="content">
-				{navItems &&
+				{ navItems &&
 					<Header {navItems}/>
 				}
 				<slot/>
 			</div>
 		</section>
-		<Footer navItems = {navItems}, parent = {data.parent}/>
+		{ navItems && 
+			<Footer navItems = {navItems}, parent = {data.parent}/>
+		}
 	</body>
 </html>
 <ClientRouter />
