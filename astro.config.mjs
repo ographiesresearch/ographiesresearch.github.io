@@ -7,4 +7,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
     integrations: [icon(), sitemap()],
     site: "https://ographiesresearch.com",
+    image: {
+        dangerouslyProcessSVG: true,
+    },
 });
