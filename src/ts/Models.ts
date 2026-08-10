@@ -30,7 +30,7 @@ export interface OrgModel {
     description?: string;
     license?: {
         name: string;
-        url;
+        url: string;
     }
     office?: {
         address?: string;
