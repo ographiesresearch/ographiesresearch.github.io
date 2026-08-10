@@ -47,20 +47,6 @@ export interface NavModel {
     title: string;
 }
 
-export interface GlobeModel {
-    lng: number;
-    lat: number;
-    zoom: number;
-    style: string;
-    bearing: number;
-    pitch?: number;
-    color?: string;
-    light: boolean;
-    linewidth?: number;
-    interactive?: boolean;
-    sec?: number;
-}
-
 export interface ImageModel {
     src: string;
     alt: string;      
@@ -68,8 +54,7 @@ export interface ImageModel {
 
 export interface ConfigModel extends OrgModel {
     people: PersonModel[],
-    clients: OrgModel[],
-    map: GlobeModel
+    clients: OrgModel[]
 }
 
 

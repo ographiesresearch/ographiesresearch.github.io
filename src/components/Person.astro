@@ -52,7 +52,7 @@ const iconSize = 20;
     <hr/>
     <div class="has-text-left">
       {
-        person.socials.map((platform) => (
+        person.socials && person.socials.map((platform) => (
             <span class="icon">
               <a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} title={`${person.name}'s ${platform.name}`} size={iconSize} /></a>
             </span>

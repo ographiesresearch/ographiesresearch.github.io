@@ -25,16 +25,20 @@ const { org, logo, columns = true} = Astro.props;
         alt={"Logo of ".concat(org.name)}
           />
   </div>
-  <div class="block">
-    <p set:html={md.renderInline(org.description)}></p>
-  </div>
+  { org.description && 
+    <div class="block">
+      <p set:html={md.renderInline(org.description)}></p>
+    </div>
+  }
   <div class="block">
     <ul>
       <li>{org.email && <a href={"mailto:".concat(org.email)}>{org.email}</a>}</li>
       <li>{org.phone && <a href={"tel:".concat(org.phone)}>{org.phone}</a>}</li>
-      <li>{org.office.address}</li>
-      <li>{org.office.address2}</li>
-      <li>{org.office.city}, {org.office.state} {org.office.postal}</li>
+      { org.office && 
+        <li>{org.office.address}</li>
+        <li>{org.office.address2}</li>
+        <li>{org.office.city}, {org.office.state} {org.office.postal}</li>
+      }
     </ul>
   </div>
   {"bookingurl" in org && 
@@ -44,7 +48,7 @@ const { org, logo, columns = true} = Astro.props;
   }
   <div class="block">
     <hr/>
-      {
+      { org.socials && 
         org.socials.map((platform) => (
             <span class="icon">
               <a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} size={iconSize} /></a>

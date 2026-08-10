@@ -29,14 +29,17 @@ const { navItems, parent } = Astro.props;
           <ul>
             <li>{data.email && <a href={"mailto:".concat(data.email)}>{data.email}</a>}</li>
             <li>{data.phone && <a href={"tel:".concat(data.phone)}>{data.phone}</a>}</li>
-            <li>{data.office.address}</li>
-            <li>{data.office.address2}</li>
-            <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
+            { data.office && 
+              <li>{data.office.address}</li>
+              <li>{data.office.address2}</li>
+              <li>{data.office.city}, {data.office.state} {data.office.postal}</li>
+            }
           </ul>
         </div>
         <div class="block">
             {
-              data.socials.map((platform) => (
+              data.socials && 
+                data.socials.map((platform) => (
                   <span class="icon">
                      <a href={platform.url}><Icon name={"mdi:".concat(platform.name.toLowerCase())} title={platform.name.toLowerCase().concat(" icon")} size={iconSize} /></a>
                   </span>
