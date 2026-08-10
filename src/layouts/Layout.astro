@@ -10,7 +10,7 @@ interface Props {
   name: string;
 }
 
-const navItems = null;
+let navItems;
 
 import { type ConfigModel } from '@ts/Models'
 import dataRaw from "@src/config.json";
@@ -55,7 +55,7 @@ const data:ConfigModel = dataRaw;
 				<slot/>
 			</div>
 		</section>
-			<Footer navItems = {navItems}, parent = {data.parent}/>
+		<Footer navItems = {navItems}, parent = {data.parent}/>
 	</body>
 </html>
 <ClientRouter />
