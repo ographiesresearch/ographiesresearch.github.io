@@ -29,10 +29,13 @@ const {navItems} = Astro.props;
 
 <script>
   let burgerListener = () => {
-    let $burger = document.querySelector('.navbar-burger')
+    let $burger = document.querySelector('.navbar-burger');
+    let $navMenu = document.getElementById("navMenu");
+    if ($burger && $navMenu) {
         $burger.addEventListener('click', () => {
-          document.getElementById("navMenu").classList.toggle('is-active');
+          $navMenu.classList.toggle('is-active');
         })
+    }
   }
 
   document.addEventListener('DOMContentLoaded', burgerListener)
