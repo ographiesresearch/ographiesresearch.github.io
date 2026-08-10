@@ -102,7 +102,15 @@
                 "state": "CA"
             }
         },
+        {
+            "name": "California Rural Legal Assistance",
+            "logo": "crla.png",
             "url": "https://crla.org/",
+            "office": {
+                "city": "Modesto",
+                "state": "CA"
+            }
+        },
         {
             "name": "Public Planning, Research, and Implementation",
             "corp_form": "Inc",
