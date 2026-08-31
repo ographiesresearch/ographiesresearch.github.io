@@ -20,5 +20,10 @@
     "markdown-it": "^15.0.0",
     "sass": "^1.102.0",
     "typescript": "^6.0.3"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true,
+    "esbuild@0.28.2": true,
+    "@parcel/watcher@2.5.1": true
   }
 }
