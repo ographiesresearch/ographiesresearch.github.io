@@ -18,7 +18,7 @@
     "astro-seo": "^1.1.0",
     "bulma": "^1.0.4",
     "markdown-it": "^15.0.1",
-    "sass": "^1.104.0",
+    "sass": "^1.104.1",
     "typescript": "^6.0.3"
   },
   "allowScripts": {
